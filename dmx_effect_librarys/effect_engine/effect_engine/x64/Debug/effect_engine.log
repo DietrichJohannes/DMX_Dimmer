@@ -1,0 +1,2 @@
+﻿  main.c
+G:\Programme\Projekte\DMX Dimmer\dmx_effect_librarys\effect_engine\effect_engine\main.c(7,1): error C1010: Unerwartetes Dateiende während der Suche nach dem vorkompilierten Header. Haben Sie möglicherweise vergessen, im Quellcode "#include "pch.h"" einzufügen?

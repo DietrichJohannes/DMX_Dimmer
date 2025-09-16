@@ -1,25 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace dmx_dimmer
 {
     public partial class Channels : Form
     {
         private readonly byte[] dmx = new byte[512];
-        int channel = 1;
+        private int channel = 1;                 // 1-basiert
+        private readonly System.Windows.Forms.Timer effectTimer = new System.Windows.Forms.Timer();
+        private bool _updatingUI = false;
 
         public Channels()
         {
             InitializeComponent();
             startDMX_Sender();
+
+            // --- Effekte initialisieren ---
+            NativeEffects.effects_init();
+
+            // --- Effekt-Timer (~40 FPS) ---
+            effectTimer.Interval = 25;
+            effectTimer.Tick += (s, e) => ApplyEffectsAndSend();
+            effectTimer.Start();
+
             initChanels();
+            UpdateUIForChannel(channel);
         }
 
         private void initChanels()
@@ -32,23 +38,111 @@ namespace dmx_dimmer
             trackBar1.Maximum = 255;
             trackBar1.Value = dmx[channel - 1];
             label1.Text = trackBar1.Value.ToString();
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            int idx = channel - 1;            // 0-basiert
-            dmx[idx] = (byte)trackBar1.Value; // Wert schreiben
-            Native.update_dmx(dmx, dmx.Length);
-            updateViews(idx);
+            label2.Text = "0%";
         }
 
         private void startDMX_Sender()
         {
-            int rc = Native.start_sender("192.168.2.128", 0, 1); // Node-IP, Universe 0, 40 FPS
-            if (rc != 0)                                         // TODO: Framerate anpassen! (40 fps)
+            
+            int rc = Native.start_sender("192.168.2.128", 0, 40);
+            if (rc != 0)
             {
                 MessageBox.Show($"Start fehlgeschlagen: {rc}");
             }
+        }
+
+        
+        private void ApplyEffectsAndSend()
+        {
+            int changed = NativeEffects.effects_apply(dmx, dmx.Length);
+            if (changed > 0)
+            {
+                Native.update_dmx(dmx, dmx.Length);
+                UpdateUIForChannel(channel);
+            }
+        }
+
+        private void UpdateUIForChannel(int ch1)
+        {
+            int idx = ch1 - 1;
+            if (idx < 0 || idx >= dmx.Length) return;
+
+            _updatingUI = true;
+            try
+            {
+                trackBar1.Value = dmx[idx];
+                label1.Text = dmx[idx].ToString();
+                label2.Text = ((int)Math.Round(dmx[idx] / 255.0 * 100)).ToString() + "%";
+            }
+            finally
+            {
+                _updatingUI = false;
+            }
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            if (_updatingUI) return; 
+
+            int idx = channel - 1;
+
+            if (NativeEffects.effects_is_active(channel) != 0)
+                NativeEffects.effects_cancel(channel);
+
+            dmx[idx] = (byte)trackBar1.Value;
+            Native.update_dmx(dmx, dmx.Length);
+            UpdateUIForChannel(channel);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            channel = (int)numericUpDown1.Value; 
+            UpdateUIForChannel(channel);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (channel < 512)
+            {
+                channel++;
+                numericUpDown1.Value = channel;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (channel > 1)
+            {
+                channel--;
+                numericUpDown1.Value = channel;
+            }
+        }
+
+        // Einfache Helper-Methode für Fades
+        private void FadeTo(byte target, int durationMs)
+        {
+            int idx = channel - 1;
+            byte current = dmx[idx];
+            NativeEffects.effects_start_fade(channel, current, target, durationMs);
+            // Weitere Updates macht der Timer automatisch
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Fade -> 0%
+            FadeTo(0, 2000);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Fade -> 50%
+            FadeTo(128, 2000);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // Fade -> 100%
+            FadeTo(255, 2000);
         }
 
         private void Channels_FormClosing(object sender, FormClosingEventArgs e)
@@ -58,45 +152,20 @@ namespace dmx_dimmer
 
         protected override async void OnFormClosing(FormClosingEventArgs e)
         {
-            // UI nicht mehr bedienbar machen (optional)
+            // Timer anhalten
+            effectTimer.Stop();
+            effectTimer.Dispose();
+
+            // Effekte stoppen (optional)
+            NativeEffects.effects_cancel_all();
+
+            // UI deaktivieren (optional)
             this.Enabled = false;
 
-            // stop in Hintergrund-Thread ausführen, UI bleibt responsiv
-            await Task.Run(() => Native.stop_sender());
+            // Sender sauber stoppen (im Hintergrund)
+            await System.Threading.Tasks.Task.Run(() => Native.stop_sender());
 
             base.OnFormClosing(e);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            channel = (int)numericUpDown1.Value; // 1-basiert merken
-            int idx = channel - 1;               // 0-basiert berechnen
-            updateViews(idx);
-        }
-
-        private void updateViews(int idx)
-        {
-            trackBar1.Value = dmx[idx];
-            label1.Text = dmx[idx].ToString();
-            label2.Text = ((int)Math.Round(dmx[idx] / 255.0 * 100)).ToString() + "%";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (channel < 512)                   
-            {
-                channel++;
-                numericUpDown1.Value = channel;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (channel > 1)                   
-            {
-                channel--;
-                numericUpDown1.Value = channel;
-            }
         }
     }
 }

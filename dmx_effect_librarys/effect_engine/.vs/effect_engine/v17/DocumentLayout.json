@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_effect_librarys\\effect_engine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9A4B5057-8AAB-466F-9EAE-1756081544F8}|effect_engine\\effect_engine.vcxproj|G:\\Programme\\Projekte\\DMX Dimmer\\dmx_effect_librarys\\effect_engine\\effect_engine\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9A4B5057-8AAB-466F-9EAE-1756081544F8}|effect_engine\\effect_engine.vcxproj|solutionrelative:effect_engine\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 308,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_effect_librarys\\effect_engine\\effect_engine\\main.c",
+              "RelativeDocumentMoniker": "effect_engine\\main.c",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_effect_librarys\\effect_engine\\effect_engine\\main.c",
+              "RelativeToolTip": "effect_engine\\main.c",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-09-16T16:03:32.737Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

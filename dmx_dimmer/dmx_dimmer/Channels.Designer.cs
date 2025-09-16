@@ -109,6 +109,7 @@
             button3.TabIndex = 5;
             button3.Text = "Aus";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -118,6 +119,7 @@
             button4.TabIndex = 6;
             button4.Text = "50%";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -127,6 +129,7 @@
             button5.TabIndex = 7;
             button5.Text = "100%";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // panel1
             // 
