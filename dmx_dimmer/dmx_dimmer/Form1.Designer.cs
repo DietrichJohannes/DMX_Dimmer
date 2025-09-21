@@ -35,10 +35,14 @@
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            toolStripSplitButton1 = new ToolStripSplitButton();
+            zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
+            überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
+            toolStripSeparator1 = new ToolStripSeparator();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +74,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripSeparator1, toolStripSplitButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1018, 25);
@@ -103,6 +107,25 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(23, 22);
             toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripSplitButton1
+            // 
+            toolStripSplitButton1.DropDownItems.AddRange(new ToolStripItem[] { zurWebseiteToolStripMenuItem, überDenEntwicklerToolStripMenuItem });
+            toolStripSplitButton1.Name = "toolStripSplitButton1";
+            toolStripSplitButton1.Size = new Size(44, 22);
+            toolStripSplitButton1.Text = "Info";
+            // 
+            // zurWebseiteToolStripMenuItem
+            // 
+            zurWebseiteToolStripMenuItem.Name = "zurWebseiteToolStripMenuItem";
+            zurWebseiteToolStripMenuItem.Size = new Size(180, 22);
+            zurWebseiteToolStripMenuItem.Text = "Zur Webseite";
+            // 
+            // überDenEntwicklerToolStripMenuItem
+            // 
+            überDenEntwicklerToolStripMenuItem.Name = "überDenEntwicklerToolStripMenuItem";
+            überDenEntwicklerToolStripMenuItem.Size = new Size(180, 22);
+            überDenEntwicklerToolStripMenuItem.Text = "Über den Entwickler";
             // 
             // button3
             // 
@@ -159,6 +182,11 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -193,5 +221,9 @@
         private Button button4;
         private Button button5;
         private Button button6;
+        private ToolStripSplitButton toolStripSplitButton1;
+        private ToolStripMenuItem zurWebseiteToolStripMenuItem;
+        private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
     }
 }

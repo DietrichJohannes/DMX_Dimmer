@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 
 namespace dmx_dimmer
@@ -10,7 +11,7 @@ namespace dmx_dimmer
         private int channel = 1;                 // 1-basiert
         private readonly System.Windows.Forms.Timer effectTimer = new System.Windows.Forms.Timer();
         private bool _updatingUI = false;
-
+        private byte[] adressByte = new byte[10];
         public Channels()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace dmx_dimmer
 
         private void startDMX_Sender()
         {
-            
+
             int rc = Native.start_sender("192.168.2.128", 0, 40);
             if (rc != 0)
             {
@@ -51,7 +52,7 @@ namespace dmx_dimmer
             }
         }
 
-        
+
         private void ApplyEffectsAndSend()
         {
             int changed = NativeEffects.effects_apply(dmx, dmx.Length);
@@ -82,7 +83,7 @@ namespace dmx_dimmer
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            if (_updatingUI) return; 
+            if (_updatingUI) return;
 
             int idx = channel - 1;
 
@@ -96,7 +97,7 @@ namespace dmx_dimmer
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            channel = (int)numericUpDown1.Value; 
+            channel = (int)numericUpDown1.Value;
             UpdateUIForChannel(channel);
         }
 
@@ -167,5 +168,44 @@ namespace dmx_dimmer
 
             base.OnFormClosing(e);
         }
+
+        private int BitsToInt(byte[] bits)
+        {
+            int value = 0;
+            for (int i = 0; i < bits.Length; i++)
+                if (bits[i] != 0) value |= (1 << i);   // DIP i setzt Bit i
+            return value;
+        }
+
+        private void convertAdressByte()
+        {
+            // aus 10 Schaltern (0/1) wird eine Zahl 0..1023 -> auf 1..512 clampen
+            int v = BitsToInt(adressByte);
+            channel = Math.Min(512, Math.Max(1, v == 0 ? 1 : v));
+            numericUpDown1.Value = channel;
+        }
+
+
+        private void ToggleDip(Panel p, int bitIndex)
+        {
+            // toggle 0/1
+            adressByte[bitIndex] = (byte)(adressByte[bitIndex] == 0 ? 1 : 0);
+            // Y-Position setzen (oben = 49, unten = 72)
+            p.Location = new Point(p.Location.X, adressByte[bitIndex] == 1 ? 49 : 72);
+            convertAdressByte();
+        }
+
+
+        private void panel2_Click(object sender, EventArgs e) => ToggleDip(panel2, 0);
+        private void panel3_Click(object sender, EventArgs e) => ToggleDip(panel3, 1);
+        private void panel4_Click(object sender, EventArgs e) => ToggleDip(panel4, 2);
+        private void panel5_Click(object sender, EventArgs e) => ToggleDip(panel5, 3);
+        private void panel6_Click(object sender, EventArgs e) => ToggleDip(panel6, 4);
+        private void panel7_Click(object sender, EventArgs e) => ToggleDip(panel7, 5);
+        private void panel8_Click(object sender, EventArgs e) => ToggleDip(panel8, 6);
+        private void panel9_Click(object sender, EventArgs e) => ToggleDip(panel9, 7);
+        private void panel10_Click(object sender, EventArgs e) => ToggleDip(panel10, 8);
+        private void panel11_Click(object sender, EventArgs e) => ToggleDip(panel11, 9);
+
     }
 }
