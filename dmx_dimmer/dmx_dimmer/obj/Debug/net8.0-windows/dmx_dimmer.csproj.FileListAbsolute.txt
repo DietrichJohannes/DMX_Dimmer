@@ -18,6 +18,6 @@ G:\Programme\Projekte\DMX Dimmer\dmx_dimmer\dmx_dimmer\obj\Debug\net8.0-windows\
 G:\Programme\Projekte\DMX Dimmer\dmx_dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.TextBook.resources
 G:\Programme\Projekte\DMX Dimmer\dmx_dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.Properties.Resources.resources
 G:\Programme\Projekte\DMX Dimmer\dmx_dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.Settings.resources
-G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.Channels.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.Devices.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.sourcelink.json
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.FaderPanel.resources

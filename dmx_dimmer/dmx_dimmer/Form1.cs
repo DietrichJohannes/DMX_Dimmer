@@ -1,59 +1,83 @@
-using System.Threading.Channels;
+using System;
+using System.Windows.Forms;
+using DmxRuntime; // hier liegt DMX_Engine
 
 namespace dmx_dimmer
 {
     public partial class Form1 : Form
     {
-
-        private readonly byte[] dmx = new byte[512];
+        private DMX_Engine _engine;         // <<— gehört IN die Klasse
 
         public Form1()
         {
             InitializeComponent();
             placeWindow();
+
+            // Optional: Engine gleich beim Start erstellen
+            _engine = new DMX_Engine("192.168.2.193", universe: 0, fps: 30);
         }
 
         private void placeWindow()
         {
-            this.StartPosition = FormStartPosition.Manual; // wichtig!
+            this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(0, 0);
-
             this.Width = Screen.PrimaryScreen.Bounds.Width;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Effects effects = new Effects();
+            var effects = new Effects();
             effects.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TextBook textBook = new TextBook();
+            var textBook = new TextBook();
             textBook.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
+            var settings = new Settings();
             settings.Show();
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            Channels channels = new Channels();
-            channels.Show();
+            if (_engine == null)
+            {
+                MessageBox.Show("Engine ist noch nicht gestartet.");
+                return;
+            }
+
+            // FaderPanel bekommt die Engine injiziert
+            var faderPanel = new FaderPanel(_engine);
+            faderPanel.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Devices devices = new Devices();
+            var devices = new Devices();
             devices.Show();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Blackout DMX Bus AUS!", "DMX_Dimmer");
+            // Beispiel: Blackout auslösen
+            _engine?.SetBlackout(true);
+        }
+
+        // Optional: Engine per Toolbar-Button neu starten
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            _engine?.Dispose();
+            _engine = new DMX_Engine("192.168.2.193", universe: 0, fps: 30);
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            _engine?.Dispose();
+            base.OnFormClosing(e);
         }
     }
 }

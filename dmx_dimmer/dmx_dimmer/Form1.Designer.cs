@@ -35,6 +35,9 @@
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripButton4 = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             toolStripSplitButton1 = new ToolStripSplitButton();
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
@@ -42,14 +45,15 @@
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
-            toolStripSeparator1 = new ToolStripSeparator();
+            button7 = new Button();
+            label1 = new Label();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(93, 42);
+            button1.Location = new Point(174, 42);
             button1.Name = "button1";
             button1.Size = new Size(75, 75);
             button1.TabIndex = 1;
@@ -61,8 +65,9 @@
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(304, 42);
+            button2.Location = new Point(405, 42);
             button2.Name = "button2";
             button2.Size = new Size(75, 75);
             button2.TabIndex = 2;
@@ -74,7 +79,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripSeparator1, toolStripSplitButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripSeparator1, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1018, 25);
@@ -107,6 +112,26 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(23, 22);
             toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // toolStripButton4
+            // 
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(23, 22);
+            toolStripButton4.Text = "toolStripButton4";
+            toolStripButton4.Click += toolStripButton4_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 25);
             // 
             // toolStripSplitButton1
             // 
@@ -143,12 +168,13 @@
             // 
             // button4
             // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(385, 42);
+            button4.Location = new Point(486, 42);
             button4.Name = "button4";
             button4.Size = new Size(75, 75);
             button4.TabIndex = 3;
-            button4.Text = "Kanäle";
+            button4.Text = "Fader ";
             button4.TextAlign = ContentAlignment.BottomCenter;
             button4.TextImageRelation = TextImageRelation.ImageAboveText;
             button4.UseVisualStyleBackColor = true;
@@ -169,10 +195,11 @@
             // 
             // button6
             // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button6.BackColor = Color.Yellow;
             button6.ForeColor = Color.Red;
             button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.Location = new Point(693, 42);
+            button6.Location = new Point(742, 42);
             button6.Name = "button6";
             button6.Size = new Size(75, 75);
             button6.TabIndex = 5;
@@ -182,16 +209,38 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
-            // toolStripSeparator1
+            // button7
             // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
+            button7.Image = (Image)resources.GetObject("button7.Image");
+            button7.Location = new Point(93, 42);
+            button7.Name = "button7";
+            button7.Size = new Size(75, 75);
+            button7.TabIndex = 6;
+            button7.Text = "Szenen";
+            button7.TextAlign = ContentAlignment.BottomCenter;
+            button7.TextImageRelation = TextImageRelation.ImageAboveText;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.BackColor = SystemColors.Control;
+            label1.Font = new Font("Bauhaus 93", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Blue;
+            label1.Location = new Point(12, 149);
+            label1.Name = "label1";
+            label1.Size = new Size(994, 90);
+            label1.TabIndex = 7;
+            label1.Text = "DMX_Dimmer";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1018, 129);
+            ClientSize = new Size(1018, 248);
+            Controls.Add(label1);
+            Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -202,7 +251,7 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
-            Text = "DMX Dimmer";
+            Text = "DMX_Dimmer";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -225,5 +274,9 @@
         private ToolStripMenuItem zurWebseiteToolStripMenuItem;
         private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton toolStripButton4;
+        private ToolStripSeparator toolStripSeparator2;
+        private Button button7;
+        private Label label1;
     }
 }
