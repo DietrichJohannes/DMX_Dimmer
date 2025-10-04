@@ -16,5 +16,10 @@ namespace dmx_dimmer
         {
             InitializeComponent();
         }
+
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

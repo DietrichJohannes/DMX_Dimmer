@@ -10,7 +10,7 @@ namespace dmx_dimmer
     internal static class ArtNet
     {
         [DllImport("dmx_sender.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
-        internal static extern int start_sender([MarshalAs(UnmanagedType.LPStr)] string ip, int universe, int fps);
+        internal static extern int start_sender([MarshalAs(UnmanagedType.LPStr)] string ip, int universe, int fps, int sendOnlyWhenDirty);
 
         [DllImport("dmx_sender.dll", CallingConvention = CallingConvention.Cdecl)]
         internal static extern void update_dmx(byte[] data, int len);

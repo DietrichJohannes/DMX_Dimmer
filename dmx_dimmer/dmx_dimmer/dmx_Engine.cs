@@ -1,13 +1,11 @@
-﻿// DMX_Engine.cs
-// Achtung: Passe das using unten auf den Namespace deiner DLL an.
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-// <- Namespace deiner C-DLL:
+
 using dmx_dimmer;  // enthält ArtNet.start_sender(...), ArtNet.update_dmx(...), ArtNet.stop_sender()
 
 namespace DmxRuntime
@@ -19,6 +17,7 @@ namespace DmxRuntime
     public readonly record struct BlackoutCmd(bool Enabled);
     public readonly record struct GrandMasterCmd(byte Value); // 0..255
 
+
     /// <summary>
     /// Zentraler DMX-Manager: nimmt Befehle entgegen, merged sie und sendet in fixer Framerate an die ArtNet-DLL.
     /// Diese Minimalversion arbeitet mit EINEM Universe (512 Kanäle). Mehr-Universen ist unten leicht erweiterbar.
@@ -29,7 +28,9 @@ namespace DmxRuntime
         private readonly double _fps;
         private readonly ushort _universe;
         private readonly string _nodeIp;
-        private readonly bool _sendOnlyWhenDirty;
+        private readonly int _sendOnlyWhenDirty;
+        private volatile bool _isRunning;
+        public bool IsRunning => _isRunning;
 
         // --- Concurrency & Lifetime ---
         private readonly ConcurrentQueue<object> _queue = new();
@@ -59,11 +60,11 @@ namespace DmxRuntime
             _nodeIp = nodeIp;
             _universe = universe;
             _fps = Math.Max(1.0, fps);
-            _sendOnlyWhenDirty = sendOnlyWhenDirty;
+            _sendOnlyWhenDirty = sendOnlyWhenDirty ? 0 : 1;
 
             // Init der C-DLL
-            ArtNet.start_sender(_nodeIp, _universe, (int)_fps);
-
+            ArtNet.start_sender(_nodeIp, _universe, (int)_fps, _sendOnlyWhenDirty);
+            _isRunning = true;
             // Loop starten
             _loopTask = Task.Run(Loop, _cts.Token);
         }
@@ -195,7 +196,7 @@ namespace DmxRuntime
             // Hier 1:1 auf physische Slots (später Patch einbauen, wenn du logische Kanäle mappen willst)
             Buffer.BlockCopy(_logical, 0, _frameBuf, 0, 512);
 
-            if (_sendOnlyWhenDirty && _frameBuf.SequenceEqual(_lastSent))
+            if (_sendOnlyWhenDirty != 0 && _frameBuf.SequenceEqual(_lastSent))
                 return;
 
             ArtNet.update_dmx(_frameBuf, _frameBuf.Length);
@@ -208,6 +209,7 @@ namespace DmxRuntime
             try { _cts.Cancel(); } catch { /* ignore */ }
             try { _loopTask?.Wait(200); } catch { /* ignore */ }
             try { ArtNet.stop_sender(); } catch { /* ignore */ }
+            _isRunning = false;
             _cts.Dispose();
         }
 

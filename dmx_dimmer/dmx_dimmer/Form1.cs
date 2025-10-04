@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using dmx_dimmer.Properties;
 using DmxRuntime; // hier liegt DMX_Engine
 
 namespace dmx_dimmer
@@ -12,9 +13,6 @@ namespace dmx_dimmer
         {
             InitializeComponent();
             placeWindow();
-
-            // Optional: Engine gleich beim Start erstellen
-            _engine = new DMX_Engine("192.168.2.193", universe: 0, fps: 30);
         }
 
         private void placeWindow()
@@ -67,17 +65,46 @@ namespace dmx_dimmer
             _engine?.SetBlackout(true);
         }
 
-        // Optional: Engine per Toolbar-Button neu starten
-        private void toolStripButton4_Click(object sender, EventArgs e)
+
+        private void startStopSheduler_Click(object sender, EventArgs e)
         {
-            _engine?.Dispose();
-            _engine = new DMX_Engine("192.168.2.193", universe: 0, fps: 30);
+            if (_engine != null && _engine.IsRunning)
+            {
+                _engine.Dispose();
+                _engine = null;
+                btn_start_stop_sheduler.Image = Resources.play;
+                btn_start_stop_sheduler.Text = "Sheduler Starten";
+            }
+            else
+            {
+                _engine = new DMX_Engine("192.168.2.193", universe: 0, fps: 30, sendOnlyWhenDirty: true);
+                btn_start_stop_sheduler.Image = Resources.stop;
+                btn_start_stop_sheduler.Text = "Sheduler Stoppen";
+            }
         }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             _engine?.Dispose();
             base.OnFormClosing(e);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FaderPanel panel = new FaderPanel(_engine);
+            panel.Show();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Devices devices= new Devices();
+            devices.Show();
         }
     }
 }

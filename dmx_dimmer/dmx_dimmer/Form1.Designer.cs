@@ -29,59 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            button1 = new Button();
-            button2 = new Button();
             toolStrip1 = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            btn_start_stop_sheduler = new ToolStripButton();
             toolStripButton4 = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripSplitButton1 = new ToolStripSplitButton();
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
             label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            tabPage2 = new TabPage();
+            button7 = new Button();
+            button1 = new Button();
+            tabPage3 = new TabPage();
+            tabPage4 = new TabPage();
+            button2 = new Button();
+            toolStrip2 = new ToolStrip();
             toolStrip1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage4.SuspendLayout();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(174, 42);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 75);
-            button1.TabIndex = 1;
-            button1.Text = "Effekte";
-            button1.TextAlign = ContentAlignment.BottomCenter;
-            button1.TextImageRelation = TextImageRelation.ImageAboveText;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(405, 42);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 75);
-            button2.TabIndex = 2;
-            button2.Text = "Textbuch";
-            button2.TextAlign = ContentAlignment.BottomCenter;
-            button2.TextImageRelation = TextImageRelation.ImageAboveText;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripSeparator1, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
+            toolStrip1.RenderMode = ToolStripRenderMode.System;
             toolStrip1.Size = new Size(1018, 25);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
@@ -118,15 +104,25 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 25);
             // 
+            // btn_start_stop_sheduler
+            // 
+            btn_start_stop_sheduler.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_start_stop_sheduler.Image = Properties.Resources.play;
+            btn_start_stop_sheduler.ImageTransparentColor = Color.Magenta;
+            btn_start_stop_sheduler.Name = "btn_start_stop_sheduler";
+            btn_start_stop_sheduler.Size = new Size(23, 22);
+            btn_start_stop_sheduler.Text = "Sheduler Starten";
+            btn_start_stop_sheduler.Click += startStopSheduler_Click;
+            // 
             // toolStripButton4
             // 
+            toolStripButton4.BackColor = Color.Yellow;
             toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
             toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
             toolStripButton4.ImageTransparentColor = Color.Magenta;
             toolStripButton4.Name = "toolStripButton4";
             toolStripButton4.Size = new Size(23, 22);
             toolStripButton4.Text = "toolStripButton4";
-            toolStripButton4.Click += toolStripButton4_Click;
             // 
             // toolStripSeparator2
             // 
@@ -143,55 +139,54 @@
             // zurWebseiteToolStripMenuItem
             // 
             zurWebseiteToolStripMenuItem.Name = "zurWebseiteToolStripMenuItem";
-            zurWebseiteToolStripMenuItem.Size = new Size(180, 22);
+            zurWebseiteToolStripMenuItem.Size = new Size(179, 22);
             zurWebseiteToolStripMenuItem.Text = "Zur Webseite";
             // 
             // überDenEntwicklerToolStripMenuItem
             // 
             überDenEntwicklerToolStripMenuItem.Name = "überDenEntwicklerToolStripMenuItem";
-            überDenEntwicklerToolStripMenuItem.Size = new Size(180, 22);
+            überDenEntwicklerToolStripMenuItem.Size = new Size(179, 22);
             überDenEntwicklerToolStripMenuItem.Text = "Über den Entwickler";
             // 
-            // button3
+            // label1
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.Location = new Point(911, 42);
-            button3.Name = "button3";
-            button3.Size = new Size(95, 75);
-            button3.TabIndex = 4;
-            button3.Text = "Einstellungen";
-            button3.TextAlign = ContentAlignment.BottomCenter;
-            button3.TextImageRelation = TextImageRelation.ImageAboveText;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.BackColor = SystemColors.Control;
+            label1.Font = new Font("Bahnschrift", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Turquoise;
+            label1.Location = new Point(12, 189);
+            label1.Name = "label1";
+            label1.Size = new Size(994, 68);
+            label1.TabIndex = 7;
+            label1.Text = "DMX_Dimmer";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button4
+            // tabControl1
             // 
-            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.Location = new Point(486, 42);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 75);
-            button4.TabIndex = 3;
-            button4.Text = "Fader ";
-            button4.TextAlign = ContentAlignment.BottomCenter;
-            button4.TextImageRelation = TextImageRelation.ImageAboveText;
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click_1;
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
+            tabControl1.Controls.Add(tabPage4);
+            tabControl1.Location = new Point(12, 28);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(994, 158);
+            tabControl1.TabIndex = 8;
             // 
-            // button5
+            // tabPage1
             // 
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.Location = new Point(12, 42);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 75);
-            button5.TabIndex = 0;
-            button5.Text = "Geräte";
-            button5.TextAlign = ContentAlignment.BottomCenter;
-            button5.TextImageRelation = TextImageRelation.ImageAboveText;
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(button6);
+            tabPage1.Controls.Add(button5);
+            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(button3);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(986, 130);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Geräte";
             // 
             // button6
             // 
@@ -199,84 +194,183 @@
             button6.BackColor = Color.Yellow;
             button6.ForeColor = Color.Red;
             button6.Image = (Image)resources.GetObject("button6.Image");
-            button6.Location = new Point(742, 42);
+            button6.Location = new Point(746, 28);
             button6.Name = "button6";
             button6.Size = new Size(75, 75);
-            button6.TabIndex = 5;
+            button6.TabIndex = 12;
             button6.Text = "Black Out";
             button6.TextAlign = ContentAlignment.BottomCenter;
             button6.TextImageRelation = TextImageRelation.ImageAboveText;
             button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            button6.Click += button6_Click_1;
+            // 
+            // button5
+            // 
+            button5.Image = (Image)resources.GetObject("button5.Image");
+            button5.Location = new Point(6, 30);
+            button5.Name = "button5";
+            button5.Size = new Size(75, 75);
+            button5.TabIndex = 7;
+            button5.Text = "Geräte";
+            button5.TextAlign = ContentAlignment.BottomCenter;
+            button5.TextImageRelation = TextImageRelation.ImageAboveText;
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click_1;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button4.Image = (Image)resources.GetObject("button4.Image");
+            button4.Location = new Point(470, 28);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 75);
+            button4.TabIndex = 10;
+            button4.Text = "Fader ";
+            button4.TextAlign = ContentAlignment.BottomCenter;
+            button4.TextImageRelation = TextImageRelation.ImageAboveText;
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.Location = new Point(885, 28);
+            button3.Name = "button3";
+            button3.Size = new Size(95, 75);
+            button3.TabIndex = 11;
+            button3.Text = "Einstellungen";
+            button3.TextAlign = ContentAlignment.BottomCenter;
+            button3.TextImageRelation = TextImageRelation.ImageAboveText;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.BackColor = SystemColors.Control;
+            tabPage2.Controls.Add(button7);
+            tabPage2.Controls.Add(button1);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(986, 130);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Szenen";
             // 
             // button7
             // 
             button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.Location = new Point(93, 42);
+            button7.Location = new Point(6, 30);
             button7.Name = "button7";
             button7.Size = new Size(75, 75);
-            button7.TabIndex = 6;
+            button7.TabIndex = 15;
             button7.Text = "Szenen";
             button7.TextAlign = ContentAlignment.BottomCenter;
             button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // button1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label1.BackColor = SystemColors.Control;
-            label1.Font = new Font("Bauhaus 93", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Blue;
-            label1.Location = new Point(12, 149);
-            label1.Name = "label1";
-            label1.Size = new Size(994, 90);
-            label1.TabIndex = 7;
-            label1.Text = "DMX_Dimmer";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(87, 30);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 75);
+            button1.TabIndex = 14;
+            button1.Text = "Effekte";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            tabPage3.BackColor = SystemColors.Control;
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new Size(986, 130);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Effekte";
+            // 
+            // tabPage4
+            // 
+            tabPage4.BackColor = SystemColors.Control;
+            tabPage4.Controls.Add(button2);
+            tabPage4.Location = new Point(4, 24);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new Size(986, 130);
+            tabPage4.TabIndex = 3;
+            tabPage4.Text = "Steuerung";
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(3, 30);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 75);
+            button2.TabIndex = 10;
+            button2.Text = "Textbuch";
+            button2.TextAlign = ContentAlignment.BottomCenter;
+            button2.TextImageRelation = TextImageRelation.ImageAboveText;
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip2
+            // 
+            toolStrip2.Dock = DockStyle.Bottom;
+            toolStrip2.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip2.Location = new Point(0, 257);
+            toolStrip2.Name = "toolStrip2";
+            toolStrip2.RenderMode = ToolStripRenderMode.System;
+            toolStrip2.Size = new Size(1018, 25);
+            toolStrip2.TabIndex = 9;
+            toolStrip2.Text = "toolStrip2";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1018, 248);
+            ClientSize = new Size(1018, 282);
+            Controls.Add(toolStrip2);
+            Controls.Add(tabControl1);
             Controls.Add(label1);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(toolStrip1);
-            Controls.Add(button2);
-            Controls.Add(button1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form1";
             Text = "DMX_Dimmer";
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage4.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
-        private Button button2;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
         private ToolStripSplitButton toolStripSplitButton1;
         private ToolStripMenuItem zurWebseiteToolStripMenuItem;
         private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton toolStripButton4;
+        private ToolStripButton btn_start_stop_sheduler;
         private ToolStripSeparator toolStripSeparator2;
-        private Button button7;
         private Label label1;
+        private TabControl tabControl1;
+        private TabPage tabPage1;
+        private Button button6;
+        private Button button5;
+        private Button button4;
+        private Button button3;
+        private TabPage tabPage2;
+        private TabPage tabPage3;
+        private TabPage tabPage4;
+        private Button button7;
+        private Button button1;
+        private Button button2;
+        private ToolStripButton toolStripButton4;
+        private ToolStrip toolStrip2;
     }
 }

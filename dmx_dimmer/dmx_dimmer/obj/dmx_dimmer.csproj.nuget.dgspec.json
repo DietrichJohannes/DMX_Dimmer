@@ -50,6 +50,12 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "System.Windows.Forms.Ribbon35": {
+              "target": "Package",
+              "version": "[3.5.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
