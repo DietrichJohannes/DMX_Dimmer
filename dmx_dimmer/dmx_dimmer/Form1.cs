@@ -22,12 +22,6 @@ namespace dmx_dimmer
             this.Width = Screen.PrimaryScreen.Bounds.Width;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var effects = new Effects();
-            effects.Show();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             var textBook = new TextBook();
@@ -58,13 +52,6 @@ namespace dmx_dimmer
             var devices = new Devices();
             devices.Show();
         }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            // Beispiel: Blackout auslösen
-            _engine?.SetBlackout(true);
-        }
-
 
         private void startStopSheduler_Click(object sender, EventArgs e)
         {
@@ -98,13 +85,45 @@ namespace dmx_dimmer
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-
+            _engine.SetBlackout();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            Devices devices= new Devices();
+            Devices devices = new Devices();
             devices.Show();
         }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            _engine.SetBlackout();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Effects effects = new Effects();
+            effects.Show();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                                                  "Möchten Sie DMX_DIMMER wirklich beenden?",
+                                                  "DMX_DIMMER beenden",
+                                                  MessageBoxButtons.YesNo,
+                                                  MessageBoxIcon.Question
+                                                  );
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+
     }
 }

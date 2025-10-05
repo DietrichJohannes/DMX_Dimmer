@@ -56,11 +56,12 @@
             // 
             // button2
             // 
+            button2.Image = Properties.Resources.folder_custom1;
             button2.Location = new Point(536, 329);
             button2.Name = "button2";
             button2.Size = new Size(100, 100);
             button2.TabIndex = 2;
-            button2.Text = "Nach Projekten suchen";
+            button2.Text = "Projekt öffnen";
             button2.TextAlign = ContentAlignment.BottomCenter;
             button2.UseVisualStyleBackColor = true;
             // 
@@ -68,6 +69,8 @@
             // 
             label1.Font = new Font("Bahnschrift", 30F, FontStyle.Bold);
             label1.ForeColor = Color.FromArgb(0, 192, 192);
+            label1.Image = Properties.Resources.dmx_dimmer;
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
             label1.Size = new Size(624, 80);
@@ -84,6 +87,9 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listView1);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "ProjectBrowser";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Projekte";

@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode1 = new TreeNode("RGBA-Leuchte");
-            TreeNode treeNode2 = new TreeNode("Dimmer");
-            TreeNode treeNode3 = new TreeNode("Generic", new TreeNode[] { treeNode1, treeNode2 });
+            TreeNode treeNode1 = new TreeNode("RGB");
+            TreeNode treeNode2 = new TreeNode("RGBA");
+            TreeNode treeNode3 = new TreeNode("RGBA / RGB", new TreeNode[] { treeNode1, treeNode2 });
+            TreeNode treeNode4 = new TreeNode("8ch Relais");
+            TreeNode treeNode5 = new TreeNode("Relais", new TreeNode[] { treeNode4 });
+            TreeNode treeNode6 = new TreeNode("Generic", new TreeNode[] { treeNode3, treeNode5 });
             listView2 = new ListView();
             treeView1 = new TreeView();
             treeView2 = new TreeView();
@@ -56,13 +59,20 @@
             // 
             treeView2.Location = new Point(12, 12);
             treeView2.Name = "treeView2";
-            treeNode1.Name = "Knoten1";
-            treeNode1.Text = "RGBA-Leuchte";
-            treeNode2.Name = "Knoten2";
-            treeNode2.Text = "Dimmer";
-            treeNode3.Name = "Knoten0";
-            treeNode3.Text = "Generic";
-            treeView2.Nodes.AddRange(new TreeNode[] { treeNode3 });
+            treeNode1.Name = "Knoten2";
+            treeNode1.Text = "RGB";
+            treeNode2.Name = "Knoten4";
+            treeNode2.Text = "RGBA";
+            treeNode3.Name = "Knoten1";
+            treeNode3.Text = "RGBA / RGB";
+            treeNode4.Name = "8Relais";
+            treeNode4.Text = "8ch Relais";
+            treeNode5.Name = "Knoten3";
+            treeNode5.Text = "Relais";
+            treeNode6.Name = "Knoten0";
+            treeNode6.Text = "Generic";
+            treeView2.Nodes.AddRange(new TreeNode[] { treeNode6 });
+            treeView2.RightToLeft = RightToLeft.Yes;
             treeView2.Size = new Size(388, 433);
             treeView2.TabIndex = 3;
             // 

@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\projectbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\projectbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\projectbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\projectbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,51 +23,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Entwurf]",
-              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs",
-              "RelativeDocumentMoniker": "dmx_dimmer\\Form1.cs",
-              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs [Entwurf]",
-              "RelativeToolTip": "dmx_dimmer\\Form1.cs [Entwurf]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T21:33:25.081Z",
-              "EditorCaption": " [Entwurf]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProjectBrowser.cs",
-              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\ProjectBrowser.cs",
-              "RelativeDocumentMoniker": "dmx_dimmer\\ProjectBrowser.cs",
-              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\ProjectBrowser.cs",
-              "RelativeToolTip": "dmx_dimmer\\ProjectBrowser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T21:24:28.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "ProjectBrowser.cs [Entwurf]",
               "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\ProjectBrowser.cs",
               "RelativeDocumentMoniker": "dmx_dimmer\\ProjectBrowser.cs",
               "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\ProjectBrowser.cs [Entwurf]",
               "RelativeToolTip": "dmx_dimmer\\ProjectBrowser.cs [Entwurf]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T21:22:35.243Z",
+              "WhenOpened": "2025-10-05T13:45:45.4Z",
               "EditorCaption": " [Entwurf]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Program.cs",
-              "RelativeDocumentMoniker": "dmx_dimmer\\Program.cs",
-              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Program.cs",
-              "RelativeToolTip": "dmx_dimmer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T21:20:52.967Z"
             }
           ]
         }

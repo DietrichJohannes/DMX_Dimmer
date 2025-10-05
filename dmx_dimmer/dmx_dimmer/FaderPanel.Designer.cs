@@ -104,6 +104,7 @@
             value1 = new Label();
             buttonPrev = new Button();
             buttonNext = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NUDchannel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
@@ -133,11 +134,14 @@
             // 
             // trackBar1
             // 
+            trackBar1.Cursor = Cursors.NoMoveVert;
+            trackBar1.LargeChange = 10;
             trackBar1.Location = new Point(12, 224);
             trackBar1.Maximum = 255;
             trackBar1.Name = "trackBar1";
             trackBar1.Orientation = Orientation.Vertical;
             trackBar1.Size = new Size(45, 338);
+            trackBar1.SmallChange = 5;
             trackBar1.TabIndex = 3;
             trackBar1.TickFrequency = 5;
             // 
@@ -164,231 +168,300 @@
             // 
             // trackBar2
             // 
+            trackBar2.Cursor = Cursors.NoMoveVert;
+            trackBar2.LargeChange = 10;
             trackBar2.Location = new Point(63, 224);
             trackBar2.Maximum = 255;
             trackBar2.Name = "trackBar2";
             trackBar2.Orientation = Orientation.Vertical;
             trackBar2.Size = new Size(45, 338);
+            trackBar2.SmallChange = 5;
             trackBar2.TabIndex = 4;
             trackBar2.TickFrequency = 5;
             // 
             // trackBar4
             // 
+            trackBar4.Cursor = Cursors.NoMoveVert;
+            trackBar4.LargeChange = 10;
             trackBar4.Location = new Point(165, 224);
             trackBar4.Maximum = 255;
             trackBar4.Name = "trackBar4";
             trackBar4.Orientation = Orientation.Vertical;
             trackBar4.Size = new Size(45, 338);
+            trackBar4.SmallChange = 5;
             trackBar4.TabIndex = 6;
             trackBar4.TickFrequency = 5;
             // 
             // trackBar3
             // 
+            trackBar3.Cursor = Cursors.NoMoveVert;
+            trackBar3.LargeChange = 10;
             trackBar3.Location = new Point(114, 224);
             trackBar3.Maximum = 255;
             trackBar3.Name = "trackBar3";
             trackBar3.Orientation = Orientation.Vertical;
             trackBar3.Size = new Size(45, 338);
+            trackBar3.SmallChange = 5;
             trackBar3.TabIndex = 5;
             trackBar3.TickFrequency = 5;
             // 
             // trackBar8
             // 
+            trackBar8.Cursor = Cursors.NoMoveVert;
+            trackBar8.LargeChange = 10;
             trackBar8.Location = new Point(369, 224);
             trackBar8.Maximum = 255;
             trackBar8.Name = "trackBar8";
             trackBar8.Orientation = Orientation.Vertical;
             trackBar8.Size = new Size(45, 338);
+            trackBar8.SmallChange = 5;
             trackBar8.TabIndex = 10;
             trackBar8.TickFrequency = 5;
             // 
             // trackBar7
             // 
+            trackBar7.Cursor = Cursors.NoMoveVert;
+            trackBar7.LargeChange = 10;
             trackBar7.Location = new Point(318, 224);
             trackBar7.Maximum = 255;
             trackBar7.Name = "trackBar7";
             trackBar7.Orientation = Orientation.Vertical;
             trackBar7.Size = new Size(45, 338);
+            trackBar7.SmallChange = 5;
             trackBar7.TabIndex = 9;
             trackBar7.TickFrequency = 5;
             // 
             // trackBar6
             // 
+            trackBar6.Cursor = Cursors.NoMoveVert;
+            trackBar6.LargeChange = 10;
             trackBar6.Location = new Point(267, 224);
             trackBar6.Maximum = 255;
             trackBar6.Name = "trackBar6";
             trackBar6.Orientation = Orientation.Vertical;
             trackBar6.Size = new Size(45, 338);
+            trackBar6.SmallChange = 5;
             trackBar6.TabIndex = 8;
             trackBar6.TickFrequency = 5;
             // 
             // trackBar5
             // 
+            trackBar5.Cursor = Cursors.NoMoveVert;
+            trackBar5.LargeChange = 10;
             trackBar5.Location = new Point(216, 224);
             trackBar5.Maximum = 255;
             trackBar5.Name = "trackBar5";
             trackBar5.Orientation = Orientation.Vertical;
             trackBar5.Size = new Size(45, 338);
+            trackBar5.SmallChange = 5;
             trackBar5.TabIndex = 7;
             trackBar5.TickFrequency = 5;
             // 
             // trackBar12
             // 
+            trackBar12.Cursor = Cursors.NoMoveVert;
+            trackBar12.LargeChange = 10;
             trackBar12.Location = new Point(573, 224);
             trackBar12.Maximum = 255;
             trackBar12.Name = "trackBar12";
             trackBar12.Orientation = Orientation.Vertical;
             trackBar12.Size = new Size(45, 338);
+            trackBar12.SmallChange = 5;
             trackBar12.TabIndex = 14;
             trackBar12.TickFrequency = 5;
             // 
             // trackBar11
             // 
+            trackBar11.Cursor = Cursors.NoMoveVert;
+            trackBar11.LargeChange = 10;
             trackBar11.Location = new Point(522, 224);
             trackBar11.Maximum = 255;
             trackBar11.Name = "trackBar11";
             trackBar11.Orientation = Orientation.Vertical;
             trackBar11.Size = new Size(45, 338);
+            trackBar11.SmallChange = 5;
             trackBar11.TabIndex = 13;
             trackBar11.TickFrequency = 5;
             // 
             // trackBar10
             // 
+            trackBar10.Cursor = Cursors.NoMoveVert;
+            trackBar10.LargeChange = 10;
             trackBar10.Location = new Point(471, 224);
             trackBar10.Maximum = 255;
             trackBar10.Name = "trackBar10";
             trackBar10.Orientation = Orientation.Vertical;
             trackBar10.Size = new Size(45, 338);
+            trackBar10.SmallChange = 5;
             trackBar10.TabIndex = 12;
             trackBar10.TickFrequency = 5;
             // 
             // trackBar9
             // 
+            trackBar9.Cursor = Cursors.NoMoveVert;
+            trackBar9.LargeChange = 10;
             trackBar9.Location = new Point(420, 224);
             trackBar9.Maximum = 255;
             trackBar9.Name = "trackBar9";
             trackBar9.Orientation = Orientation.Vertical;
             trackBar9.Size = new Size(45, 338);
+            trackBar9.SmallChange = 5;
             trackBar9.TabIndex = 11;
             trackBar9.TickFrequency = 5;
             // 
             // trackBar16
             // 
+            trackBar16.Cursor = Cursors.NoMoveVert;
+            trackBar16.LargeChange = 10;
             trackBar16.Location = new Point(777, 224);
             trackBar16.Maximum = 255;
             trackBar16.Name = "trackBar16";
             trackBar16.Orientation = Orientation.Vertical;
             trackBar16.Size = new Size(45, 338);
+            trackBar16.SmallChange = 5;
             trackBar16.TabIndex = 18;
             trackBar16.TickFrequency = 5;
             // 
             // trackBar15
             // 
+            trackBar15.Cursor = Cursors.NoMoveVert;
+            trackBar15.LargeChange = 10;
             trackBar15.Location = new Point(726, 224);
             trackBar15.Maximum = 255;
             trackBar15.Name = "trackBar15";
             trackBar15.Orientation = Orientation.Vertical;
             trackBar15.Size = new Size(45, 338);
+            trackBar15.SmallChange = 5;
             trackBar15.TabIndex = 17;
             trackBar15.TickFrequency = 5;
             // 
             // trackBar14
             // 
+            trackBar14.Cursor = Cursors.NoMoveVert;
+            trackBar14.LargeChange = 10;
             trackBar14.Location = new Point(675, 224);
             trackBar14.Maximum = 255;
             trackBar14.Name = "trackBar14";
             trackBar14.Orientation = Orientation.Vertical;
             trackBar14.Size = new Size(45, 338);
+            trackBar14.SmallChange = 5;
             trackBar14.TabIndex = 16;
             trackBar14.TickFrequency = 5;
             // 
             // trackBar13
             // 
+            trackBar13.Cursor = Cursors.NoMoveVert;
+            trackBar13.LargeChange = 10;
             trackBar13.Location = new Point(624, 224);
             trackBar13.Maximum = 255;
             trackBar13.Name = "trackBar13";
             trackBar13.Orientation = Orientation.Vertical;
             trackBar13.Size = new Size(45, 338);
+            trackBar13.SmallChange = 5;
             trackBar13.TabIndex = 15;
             trackBar13.TickFrequency = 5;
             // 
             // trackBar20
             // 
+            trackBar20.Cursor = Cursors.NoMoveVert;
+            trackBar20.LargeChange = 10;
             trackBar20.Location = new Point(981, 224);
             trackBar20.Maximum = 255;
             trackBar20.Name = "trackBar20";
             trackBar20.Orientation = Orientation.Vertical;
             trackBar20.Size = new Size(45, 338);
+            trackBar20.SmallChange = 5;
             trackBar20.TabIndex = 22;
             trackBar20.TickFrequency = 5;
             // 
             // trackBar19
             // 
+            trackBar19.Cursor = Cursors.NoMoveVert;
+            trackBar19.LargeChange = 10;
             trackBar19.Location = new Point(930, 224);
             trackBar19.Maximum = 255;
             trackBar19.Name = "trackBar19";
             trackBar19.Orientation = Orientation.Vertical;
             trackBar19.Size = new Size(45, 338);
+            trackBar19.SmallChange = 5;
             trackBar19.TabIndex = 21;
             trackBar19.TickFrequency = 5;
             // 
             // trackBar18
             // 
+            trackBar18.Cursor = Cursors.NoMoveVert;
+            trackBar18.LargeChange = 10;
             trackBar18.Location = new Point(879, 224);
             trackBar18.Maximum = 255;
             trackBar18.Name = "trackBar18";
             trackBar18.Orientation = Orientation.Vertical;
             trackBar18.Size = new Size(45, 338);
+            trackBar18.SmallChange = 5;
             trackBar18.TabIndex = 20;
             trackBar18.TickFrequency = 5;
             // 
             // trackBar17
             // 
+            trackBar17.Cursor = Cursors.NoMoveVert;
+            trackBar17.LargeChange = 10;
             trackBar17.Location = new Point(828, 224);
             trackBar17.Maximum = 255;
             trackBar17.Name = "trackBar17";
             trackBar17.Orientation = Orientation.Vertical;
             trackBar17.Size = new Size(45, 338);
+            trackBar17.SmallChange = 5;
             trackBar17.TabIndex = 19;
             trackBar17.TickFrequency = 5;
             // 
             // trackBar24
             // 
+            trackBar24.Cursor = Cursors.NoMoveVert;
+            trackBar24.LargeChange = 10;
             trackBar24.Location = new Point(1185, 224);
             trackBar24.Maximum = 255;
             trackBar24.Name = "trackBar24";
             trackBar24.Orientation = Orientation.Vertical;
             trackBar24.Size = new Size(45, 338);
+            trackBar24.SmallChange = 5;
             trackBar24.TabIndex = 26;
             trackBar24.TickFrequency = 5;
             // 
             // trackBar23
             // 
+            trackBar23.Cursor = Cursors.NoMoveVert;
+            trackBar23.LargeChange = 10;
             trackBar23.Location = new Point(1134, 224);
             trackBar23.Maximum = 255;
             trackBar23.Name = "trackBar23";
             trackBar23.Orientation = Orientation.Vertical;
             trackBar23.Size = new Size(45, 338);
+            trackBar23.SmallChange = 5;
             trackBar23.TabIndex = 25;
             trackBar23.TickFrequency = 5;
             // 
             // trackBar22
             // 
+            trackBar22.Cursor = Cursors.NoMoveVert;
+            trackBar22.LargeChange = 10;
             trackBar22.Location = new Point(1083, 224);
             trackBar22.Maximum = 255;
             trackBar22.Name = "trackBar22";
             trackBar22.Orientation = Orientation.Vertical;
             trackBar22.Size = new Size(45, 338);
+            trackBar22.SmallChange = 5;
             trackBar22.TabIndex = 24;
             trackBar22.TickFrequency = 5;
             // 
             // trackBar21
             // 
+            trackBar21.Cursor = Cursors.NoMoveVert;
+            trackBar21.LargeChange = 10;
             trackBar21.Location = new Point(1032, 224);
             trackBar21.Maximum = 255;
             trackBar21.Name = "trackBar21";
             trackBar21.Orientation = Orientation.Vertical;
             trackBar21.Size = new Size(45, 338);
+            trackBar21.SmallChange = 5;
             trackBar21.TabIndex = 23;
             trackBar21.TickFrequency = 5;
             // 
@@ -916,11 +989,24 @@
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(401, 30);
+            label2.Name = "label2";
+            label2.Size = new Size(421, 50);
+            label2.TabIndex = 77;
+            label2.Text = "Die DMX Stream Ausgabe ist noch deaktiviert!\r\nBitte aktiviere die DMX Engine";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FaderPanel
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1240, 621);
+            Controls.Add(label2);
             Controls.Add(buttonNext);
             Controls.Add(buttonPrev);
             Controls.Add(value24);
@@ -1108,5 +1194,6 @@
         private Label value1;
         private Button buttonPrev;
         private Button buttonNext;
+        private Label label2;
     }
 }

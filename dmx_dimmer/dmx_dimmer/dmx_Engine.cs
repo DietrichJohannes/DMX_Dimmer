@@ -14,7 +14,7 @@ namespace DmxRuntime
 
     public readonly record struct SetChannelCmd(int Channel, byte Value, int Priority = 0, MergeMode Mode = MergeMode.HTP);
     public readonly record struct SetManyCmd(IReadOnlyDictionary<int, byte> Values, int Priority = 0, MergeMode Mode = MergeMode.HTP);
-    public readonly record struct BlackoutCmd(bool Enabled);
+    public readonly record struct BlackoutCmd();
     public readonly record struct GrandMasterCmd(byte Value); // 0..255
 
 
@@ -76,7 +76,8 @@ namespace DmxRuntime
         public void SetMany(IReadOnlyDictionary<int, byte> values, int priority = 0, MergeMode mode = MergeMode.HTP)
             => _queue.Enqueue(new SetManyCmd(values, priority, mode));
 
-        public void SetBlackout(bool enabled) => _queue.Enqueue(new BlackoutCmd(enabled));
+        public void SetBlackout() => _queue.Enqueue(new BlackoutCmd());
+
         public void SetGrandMaster(byte value) => _queue.Enqueue(new GrandMasterCmd(value));
 
         // --- Main Loop ---
@@ -121,8 +122,8 @@ namespace DmxRuntime
                             ApplySet(kv.Key, kv.Value, m.Priority, m.Mode);
                         break;
 
-                    case BlackoutCmd b:
-                        _blackout = b.Enabled;
+                    case BlackoutCmd:
+                        _blackout = true;
                         break;
 
                     case GrandMasterCmd g:
@@ -188,6 +189,7 @@ namespace DmxRuntime
                     _logical[i] = v;
                 }
             }
+
         }
 
         // --- Universe bauen & senden ---

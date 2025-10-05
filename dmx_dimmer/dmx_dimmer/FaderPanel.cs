@@ -25,25 +25,23 @@ namespace dmx_dimmer
 
             if (_engine == null)
             {
-                MessageBox.Show(
-                    "DMX Engine ist nicht gestartet.\nBitte starte die Engine, bevor du Werte sendest.",
-                    "Fehler",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-                // Optional: Close(); return;  // wenn Fenster gar nicht erst nutzbar sein soll
+                label2.Visible = true;
+            }
+            else
+            {
+                label2.Visible = false;
             }
 
-            // TrackBars registrieren – achte auf korrekte Label-Namen!
+            // -- TrackBars registrieren --
             RegisterFader(trackBar1, value1, ch1, 0);
             RegisterFader(trackBar2, value2, ch2, 1);
             RegisterFader(trackBar3, value3, ch3, 2);
             RegisterFader(trackBar4, value4, ch4, 3);
-            RegisterFader(trackBar5, value5, ch5, 4);  // FIX: ch5 statt ch3
+            RegisterFader(trackBar5, value5, ch5, 4);
             RegisterFader(trackBar6, value6, ch6, 5);
             RegisterFader(trackBar7, value7, ch7, 6);
             RegisterFader(trackBar8, value8, ch8, 7);
-            RegisterFader(trackBar9, value9, ch9, 8);  // FIX: ch9 statt ch8
+            RegisterFader(trackBar9, value9, ch9, 8);
             RegisterFader(trackBar10, value10, ch10, 9);
             RegisterFader(trackBar11, value11, ch11, 10);
             RegisterFader(trackBar12, value12, ch12, 11);
@@ -60,9 +58,9 @@ namespace dmx_dimmer
             RegisterFader(trackBar23, value23, ch23, 22);
             RegisterFader(trackBar24, value24, ch24, 23);
 
-            // NumericUpDown
+
             NUDchannel.Minimum = 1;
-            NUDchannel.Maximum = MaxDmxChannel - (FaderCount - 1); // 512 - 23 = 489
+            NUDchannel.Maximum = MaxDmxChannel - (FaderCount - 1);
             NUDchannel.Value = _baseChannel;
             NUDchannel.ValueChanged += NUDchannel_ValueChanged;
 
@@ -89,9 +87,9 @@ namespace dmx_dimmer
         {
             var tb = (TrackBar)sender;
             UpdatePercentLabel(tb);
-            // Falls live-senden gewünscht:
-            // TrySendToEngine(GetChannelFor(tb), (byte)tb.Value);
+            TrySendToEngine(GetChannelFor(tb), (byte)tb.Value); // live senden
         }
+
 
         private void TrackBar_Commit(object sender, EventArgs e)
         {
@@ -104,7 +102,7 @@ namespace dmx_dimmer
             _baseChannel = (int)NUDchannel.Value;
             UpdateAllChannelCaptions();
 
-            // Optional: alle aktuellen Werte auf neue Kanäle senden
+
             foreach (var tb in _faders)
                 TrySendToEngine(GetChannelFor(tb), (byte)tb.Value);
         }
@@ -152,7 +150,7 @@ namespace dmx_dimmer
 
             try
             {
-                _engine.SetChannel(channel, value);
+                _engine.SetChannel(channel, value, priority: 100, mode: MergeMode.LTP);
                 return true;
             }
             catch (Exception ex)
@@ -162,6 +160,7 @@ namespace dmx_dimmer
                 return false;
             }
         }
+
 
         private void buttonPrev_Click(object sender, EventArgs e)
         {
