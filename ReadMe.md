@@ -1,4 +1,4 @@
-**DMX_DIMMER**
+*DMX_DIMMER*
 
 
 == dmx_dimmer ==
