@@ -7,12 +7,13 @@ namespace dmx_dimmer
 {
     public partial class Form1 : Form
     {
-        private DMX_Engine _engine;         // <<— gehört IN die Klasse
+        private DMX_Engine _engine;
 
         public Form1()
         {
             InitializeComponent();
             placeWindow();
+            initDmxEngine();
         }
 
         private void placeWindow()
@@ -53,7 +54,7 @@ namespace dmx_dimmer
             devices.Show();
         }
 
-        private void startStopSheduler_Click(object sender, EventArgs e)
+        private void initDmxEngine()
         {
             if (_engine != null && _engine.IsRunning)
             {
@@ -68,6 +69,11 @@ namespace dmx_dimmer
                 btn_start_stop_sheduler.Image = Resources.stop;
                 btn_start_stop_sheduler.Text = "Sheduler Stoppen";
             }
+        }
+
+        private void startStopSheduler_Click(object sender, EventArgs e)
+        {
+            initDmxEngine();
         }
 
 
@@ -112,7 +118,7 @@ namespace dmx_dimmer
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                                                  "Möchten Sie DMX_DIMMER wirklich beenden?",
+                                                  "MÃ¶chten Sie DMX_DIMMER wirklich beenden?",
                                                   "DMX_DIMMER beenden",
                                                   MessageBoxButtons.YesNo,
                                                   MessageBoxIcon.Question
