@@ -28,25 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TreeNode treeNode1 = new TreeNode("RGB");
-            TreeNode treeNode2 = new TreeNode("RGBA");
-            TreeNode treeNode3 = new TreeNode("RGBA / RGB", new TreeNode[] { treeNode1, treeNode2 });
-            TreeNode treeNode4 = new TreeNode("8ch Relais");
-            TreeNode treeNode5 = new TreeNode("Relais", new TreeNode[] { treeNode4 });
-            TreeNode treeNode6 = new TreeNode("Generic", new TreeNode[] { treeNode3, treeNode5 });
-            listView2 = new ListView();
             treeView1 = new TreeView();
-            treeView2 = new TreeView();
+            device_tree = new TreeView();
+            add_device = new Button();
+            proj_devices = new ListView();
             SuspendLayout();
-            // 
-            // listView2
-            // 
-            listView2.Location = new Point(606, 235);
-            listView2.Name = "listView2";
-            listView2.Size = new Size(347, 210);
-            listView2.TabIndex = 1;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.SelectedIndexChanged += listView2_SelectedIndexChanged;
             // 
             // treeView1
             // 
@@ -55,35 +41,42 @@
             treeView1.Size = new Size(347, 192);
             treeView1.TabIndex = 2;
             // 
-            // treeView2
+            // device_tree
             // 
-            treeView2.Location = new Point(12, 12);
-            treeView2.Name = "treeView2";
-            treeNode1.Name = "Knoten2";
-            treeNode1.Text = "RGB";
-            treeNode2.Name = "Knoten4";
-            treeNode2.Text = "RGBA";
-            treeNode3.Name = "Knoten1";
-            treeNode3.Text = "RGBA / RGB";
-            treeNode4.Name = "8Relais";
-            treeNode4.Text = "8ch Relais";
-            treeNode5.Name = "Knoten3";
-            treeNode5.Text = "Relais";
-            treeNode6.Name = "Knoten0";
-            treeNode6.Text = "Generic";
-            treeView2.Nodes.AddRange(new TreeNode[] { treeNode6 });
-            treeView2.RightToLeft = RightToLeft.Yes;
-            treeView2.Size = new Size(388, 433);
-            treeView2.TabIndex = 3;
+            device_tree.Location = new Point(12, 12);
+            device_tree.Name = "device_tree";
+            device_tree.RightToLeft = RightToLeft.Yes;
+            device_tree.Size = new Size(388, 433);
+            device_tree.TabIndex = 3;
+            // 
+            // add_device
+            // 
+            add_device.Image = Properties.Resources.plus_custom;
+            add_device.Location = new Point(406, 235);
+            add_device.Name = "add_device";
+            add_device.Size = new Size(40, 25);
+            add_device.TabIndex = 4;
+            add_device.Tag = "";
+            add_device.UseVisualStyleBackColor = true;
+            add_device.Click += add_device_Click;
+            // 
+            // proj_devices
+            // 
+            proj_devices.Location = new Point(606, 235);
+            proj_devices.Name = "proj_devices";
+            proj_devices.Size = new Size(347, 210);
+            proj_devices.TabIndex = 5;
+            proj_devices.UseCompatibleStateImageBehavior = false;
             // 
             // Devices
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(965, 457);
-            Controls.Add(treeView2);
+            Controls.Add(proj_devices);
+            Controls.Add(add_device);
+            Controls.Add(device_tree);
             Controls.Add(treeView1);
-            Controls.Add(listView2);
             Name = "Devices";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Geräte";
@@ -91,8 +84,9 @@
         }
 
         #endregion
-        private ListView listView2;
         private TreeView treeView1;
-        private TreeView treeView2;
+        private TreeView device_tree;
+        private Button add_device;
+        private ListView proj_devices;
     }
 }

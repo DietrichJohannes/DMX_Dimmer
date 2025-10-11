@@ -29,7 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            toolStrip1 = new ToolStrip();
+            label1 = new Label();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            button6 = new Button();
+            button5 = new Button();
+            button4 = new Button();
+            button3 = new Button();
+            tabPage2 = new TabPage();
+            button1 = new Button();
+            button7 = new Button();
+            tabPage3 = new TabPage();
+            button8 = new Button();
+            tabPage4 = new TabPage();
+            button2 = new Button();
+            toolStrip2 = new ToolStrip();
             toolStripButton3 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
@@ -40,115 +54,14 @@
             toolStripSplitButton1 = new ToolStripSplitButton();
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
-            label1 = new Label();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            tabPage2 = new TabPage();
-            button7 = new Button();
-            tabPage3 = new TabPage();
-            button8 = new Button();
-            tabPage4 = new TabPage();
-            button2 = new Button();
-            toolStrip2 = new ToolStrip();
-            toolStrip1.SuspendLayout();
+            toolStrip1 = new ToolStrip();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
             tabPage4.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.RenderMode = ToolStripRenderMode.System;
-            toolStrip1.Size = new Size(1018, 25);
-            toolStrip1.TabIndex = 2;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = Properties.Resources.plus_box_custom;
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(23, 22);
-            toolStripButton3.Text = "toolStripButton3";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = Properties.Resources.content_save_custom;
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = Properties.Resources.folder_custom;
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(23, 22);
-            toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 25);
-            // 
-            // btn_start_stop_sheduler
-            // 
-            btn_start_stop_sheduler.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btn_start_stop_sheduler.Image = Properties.Resources.play;
-            btn_start_stop_sheduler.ImageTransparentColor = Color.Magenta;
-            btn_start_stop_sheduler.Name = "btn_start_stop_sheduler";
-            btn_start_stop_sheduler.Size = new Size(23, 22);
-            btn_start_stop_sheduler.Text = "Sheduler Starten";
-            btn_start_stop_sheduler.Click += startStopSheduler_Click;
-            // 
-            // toolStripButton4
-            // 
-            toolStripButton4.BackColor = Color.Yellow;
-            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
-            toolStripButton4.ImageTransparentColor = Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(23, 22);
-            toolStripButton4.Text = "toolStripButton4";
-            toolStripButton4.Click += toolStripButton4_Click;
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 25);
-            // 
-            // toolStripSplitButton1
-            // 
-            toolStripSplitButton1.DropDownItems.AddRange(new ToolStripItem[] { zurWebseiteToolStripMenuItem, überDenEntwicklerToolStripMenuItem });
-            toolStripSplitButton1.Name = "toolStripSplitButton1";
-            toolStripSplitButton1.Size = new Size(44, 22);
-            toolStripSplitButton1.Text = "Info";
-            // 
-            // zurWebseiteToolStripMenuItem
-            // 
-            zurWebseiteToolStripMenuItem.Name = "zurWebseiteToolStripMenuItem";
-            zurWebseiteToolStripMenuItem.Size = new Size(179, 22);
-            zurWebseiteToolStripMenuItem.Text = "Zur Webseite";
-            // 
-            // überDenEntwicklerToolStripMenuItem
-            // 
-            überDenEntwicklerToolStripMenuItem.Name = "überDenEntwicklerToolStripMenuItem";
-            überDenEntwicklerToolStripMenuItem.Size = new Size(179, 22);
-            überDenEntwicklerToolStripMenuItem.Text = "Über den Entwickler";
             // 
             // label1
             // 
@@ -250,6 +163,7 @@
             // tabPage2
             // 
             tabPage2.BackColor = SystemColors.Control;
+            tabPage2.Controls.Add(button1);
             tabPage2.Controls.Add(button7);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
@@ -258,6 +172,18 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Szenen";
             // 
+            // button1
+            // 
+            button1.Image = Properties.Resources.play_circle_custom;
+            button1.Location = new Point(135, 30);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 75);
+            button1.TabIndex = 16;
+            button1.Text = "Audio\r\nSzenen";
+            button1.TextAlign = ContentAlignment.BottomCenter;
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = true;
+            // 
             // button7
             // 
             button7.Image = (Image)resources.GetObject("button7.Image");
@@ -265,7 +191,7 @@
             button7.Name = "button7";
             button7.Size = new Size(75, 75);
             button7.TabIndex = 15;
-            button7.Text = "Szenen";
+            button7.Text = "Geräte\r\nSzenen";
             button7.TextAlign = ContentAlignment.BottomCenter;
             button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = true;
@@ -328,6 +254,94 @@
             toolStrip2.TabIndex = 9;
             toolStrip2.Text = "toolStrip2";
             // 
+            // toolStripButton3
+            // 
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = Properties.Resources.plus_box_custom;
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(23, 22);
+            toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = Properties.Resources.content_save_custom;
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(23, 22);
+            toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = Properties.Resources.folder_custom;
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(23, 22);
+            toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(6, 25);
+            // 
+            // btn_start_stop_sheduler
+            // 
+            btn_start_stop_sheduler.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btn_start_stop_sheduler.Image = Properties.Resources.play;
+            btn_start_stop_sheduler.ImageTransparentColor = Color.Magenta;
+            btn_start_stop_sheduler.Name = "btn_start_stop_sheduler";
+            btn_start_stop_sheduler.Size = new Size(23, 22);
+            btn_start_stop_sheduler.Text = "Sheduler Starten";
+            btn_start_stop_sheduler.Click += startStopSheduler_Click;
+            // 
+            // toolStripButton4
+            // 
+            toolStripButton4.BackColor = Color.Yellow;
+            toolStripButton4.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
+            toolStripButton4.ImageTransparentColor = Color.Magenta;
+            toolStripButton4.Name = "toolStripButton4";
+            toolStripButton4.Size = new Size(23, 22);
+            toolStripButton4.Text = "toolStripButton4";
+            toolStripButton4.Click += toolStripButton4_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 25);
+            // 
+            // toolStripSplitButton1
+            // 
+            toolStripSplitButton1.DropDownItems.AddRange(new ToolStripItem[] { zurWebseiteToolStripMenuItem, überDenEntwicklerToolStripMenuItem });
+            toolStripSplitButton1.Name = "toolStripSplitButton1";
+            toolStripSplitButton1.Size = new Size(44, 22);
+            toolStripSplitButton1.Text = "Info";
+            // 
+            // zurWebseiteToolStripMenuItem
+            // 
+            zurWebseiteToolStripMenuItem.Name = "zurWebseiteToolStripMenuItem";
+            zurWebseiteToolStripMenuItem.Size = new Size(179, 22);
+            zurWebseiteToolStripMenuItem.Text = "Zur Webseite";
+            // 
+            // überDenEntwicklerToolStripMenuItem
+            // 
+            überDenEntwicklerToolStripMenuItem.Name = "überDenEntwicklerToolStripMenuItem";
+            überDenEntwicklerToolStripMenuItem.Size = new Size(179, 22);
+            überDenEntwicklerToolStripMenuItem.Text = "Über den Entwickler";
+            // 
+            // toolStrip1
+            // 
+            toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.RenderMode = ToolStripRenderMode.System;
+            toolStrip1.Size = new Size(1018, 25);
+            toolStrip1.TabIndex = 2;
+            toolStrip1.Text = "toolStrip1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -342,28 +356,18 @@
             Name = "Form1";
             Text = "DMX_Dimmer";
             FormClosing += Form1_FormClosing;
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage2.ResumeLayout(false);
             tabPage3.ResumeLayout(false);
             tabPage4.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
-        private ToolStripSplitButton toolStripSplitButton1;
-        private ToolStripMenuItem zurWebseiteToolStripMenuItem;
-        private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripButton btn_start_stop_sheduler;
-        private ToolStripSeparator toolStripSeparator2;
         private Label label1;
         private TabControl tabControl1;
         private TabPage tabPage1;
@@ -376,8 +380,19 @@
         private TabPage tabPage4;
         private Button button7;
         private Button button2;
-        private ToolStripButton toolStripButton4;
         private ToolStrip toolStrip2;
         private Button button8;
+        private Button button1;
+        private ToolStripButton toolStripButton3;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripButton btn_start_stop_sheduler;
+        private ToolStripButton toolStripButton4;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripSplitButton toolStripSplitButton1;
+        private ToolStripMenuItem zurWebseiteToolStripMenuItem;
+        private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
+        private ToolStrip toolStrip1;
     }
 }

@@ -1,0 +1,14 @@
+<!-- DeviceTemplates/8ch_Relay.xml -->
+<DeviceTemplate name="8ch Relais" category="Relais">
+  <Description>Acht schaltbare Ausgänge (0/255)</Description>
+  <Channels>
+    <Channel name="CH1" offset="0" default="0" mergeMode="LTP" />
+    <Channel name="CH2" offset="1" default="0" mergeMode="LTP" />
+    <Channel name="CH3" offset="2" default="0" mergeMode="LTP" />
+    <Channel name="CH4" offset="3" default="0" mergeMode="LTP" />
+    <Channel name="CH5" offset="4" default="0" mergeMode="LTP" />
+    <Channel name="CH6" offset="5" default="0" mergeMode="LTP" />
+    <Channel name="CH7" offset="6" default="0" mergeMode="LTP" />
+    <Channel name="CH8" offset="7" default="0" mergeMode="LTP" />
+  </Channels>
+</DeviceTemplate>

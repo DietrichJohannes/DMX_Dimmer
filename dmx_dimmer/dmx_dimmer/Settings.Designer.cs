@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            maskedTextBox1 = new MaskedTextBox();
+            ip_label = new MaskedTextBox();
             label1 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // maskedTextBox1
+            // ip_label
             // 
-            maskedTextBox1.Location = new Point(157, 12);
-            maskedTextBox1.Mask = "000\\.000\\.0\\.000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(133, 23);
-            maskedTextBox1.TabIndex = 0;
+            ip_label.Location = new Point(157, 12);
+            ip_label.Mask = "000\\.000\\.0\\.000";
+            ip_label.Name = "ip_label";
+            ip_label.Size = new Size(133, 23);
+            ip_label.TabIndex = 0;
             // 
             // label1
             // 
@@ -49,13 +50,24 @@
             label1.TabIndex = 1;
             label1.Text = "ArtNet Node IP";
             // 
+            // button1
+            // 
+            button1.Location = new Point(448, 363);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Anwenden";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnSave_Click;
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1006, 476);
+            ClientSize = new Size(535, 398);
+            Controls.Add(button1);
             Controls.Add(label1);
-            Controls.Add(maskedTextBox1);
+            Controls.Add(ip_label);
             Name = "Settings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Einstellungen";
@@ -65,7 +77,8 @@
 
         #endregion
 
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox ip_label;
         private Label label1;
+        private Button button1;
     }
 }

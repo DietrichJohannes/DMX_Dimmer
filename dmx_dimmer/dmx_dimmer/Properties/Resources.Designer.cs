@@ -73,6 +73,16 @@ namespace dmx_dimmer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dip_Switches_Default {
+            get {
+                object obj = ResourceManager.GetObject("Dip-Switches-Default", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dmx_dimmer {
             get {
                 object obj = ResourceManager.GetObject("dmx_dimmer", resourceCulture);
@@ -126,6 +136,16 @@ namespace dmx_dimmer.Properties {
         internal static System.Drawing.Bitmap plus_box_custom {
             get {
                 object obj = ResourceManager.GetObject("plus-box-custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_custom {
+            get {
+                object obj = ResourceManager.GetObject("plus-custom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

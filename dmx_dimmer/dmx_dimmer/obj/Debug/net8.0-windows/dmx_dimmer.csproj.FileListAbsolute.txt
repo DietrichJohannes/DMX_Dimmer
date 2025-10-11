@@ -25,3 +25,5 @@ G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\bin\Debug\net8.0-windows\
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.csproj.AssemblyReference.cache
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.csproj.Up2Date
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.ProjectBrowser.resources
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.DIPSwitch.resources
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\bin\Debug\net8.0-windows\dmx_dimmer.dll.config

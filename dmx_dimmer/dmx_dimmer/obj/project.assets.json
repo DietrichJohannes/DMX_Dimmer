@@ -40,9 +40,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
+      "projectUniqueName": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
       "projectName": "dmx_dimmer",
-      "projectPath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
+      "projectPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
       "packagesPath": "C:\\Users\\Anwender\\.nuget\\packages\\",
       "outputPath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\obj\\",
       "projectStyle": "PackageReference",
