@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Effects));
             listView1 = new ListView();
             button1 = new Button();
             button2 = new Button();
@@ -78,6 +79,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Effects";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Effekte";

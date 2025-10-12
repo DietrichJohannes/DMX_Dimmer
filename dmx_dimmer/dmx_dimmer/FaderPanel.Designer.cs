@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FaderPanel));
             trackBar1 = new TrackBar();
             NUDchannel = new NumericUpDown();
             label1 = new Label();
@@ -1084,6 +1085,7 @@
             Controls.Add(NUDchannel);
             Controls.Add(trackBar1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FaderPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Faderpanel";

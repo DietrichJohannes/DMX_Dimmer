@@ -1,16 +1,16 @@
-*DMX_DIMMER*
+# DMX_DIMMER
 
 
-== dmx_dimmer ==
+## == dmx_dimmer ==
 
 C# WindowsForm App (UI)
 
 
-== dmx_sender ==
+## == dmx_sender ==
 
 C Bibliothek für Übertragung an ArtNet Node
 
 
-== files == 
+## == files == 
 
 .xml Dateien für Geräte Konfiguration

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             ip_label = new MaskedTextBox();
             label1 = new Label();
             button1 = new Button();
@@ -90,6 +91,7 @@
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(ip_label);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Settings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Einstellungen";

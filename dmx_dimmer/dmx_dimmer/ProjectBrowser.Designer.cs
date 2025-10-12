@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProjectBrowser));
             listView1 = new ListView();
             button1 = new Button();
             button2 = new Button();
@@ -89,6 +90,7 @@
             Controls.Add(listView1);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "ProjectBrowser";
             StartPosition = FormStartPosition.CenterScreen;

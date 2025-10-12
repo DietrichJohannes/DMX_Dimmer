@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Devices));
             treeView1 = new TreeView();
             device_tree = new TreeView();
             add_device = new Button();
@@ -88,6 +89,7 @@
             Controls.Add(add_device);
             Controls.Add(device_tree);
             Controls.Add(treeView1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Devices";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Geräte";

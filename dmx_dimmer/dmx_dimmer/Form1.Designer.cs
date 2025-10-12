@@ -55,6 +55,7 @@
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
+            button9 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -69,6 +70,8 @@
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Bahnschrift", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Turquoise;
+            label1.Image = Properties.Resources.dmx_dimmer;
+            label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(12, 189);
             label1.Name = "label1";
             label1.Size = new Size(994, 68);
@@ -223,6 +226,7 @@
             // tabPage4
             // 
             tabPage4.BackColor = SystemColors.Control;
+            tabPage4.Controls.Add(button9);
             tabPage4.Controls.Add(button2);
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
@@ -342,6 +346,18 @@
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
+            // button9
+            // 
+            button9.Image = (Image)resources.GetObject("button9.Image");
+            button9.Location = new Point(84, 30);
+            button9.Name = "button9";
+            button9.Size = new Size(75, 75);
+            button9.TabIndex = 11;
+            button9.Text = "Textbuch";
+            button9.TextAlign = ContentAlignment.BottomCenter;
+            button9.TextImageRelation = TextImageRelation.ImageAboveText;
+            button9.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -352,6 +368,7 @@
             Controls.Add(label1);
             Controls.Add(toolStrip1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Form1";
             Text = "DMX_Dimmer";
@@ -394,5 +411,6 @@
         private ToolStripMenuItem zurWebseiteToolStripMenuItem;
         private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
         private ToolStrip toolStrip1;
+        private Button button9;
     }
 }
