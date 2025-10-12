@@ -44,29 +44,29 @@
             // 
             // button1
             // 
+            button1.Image = Properties.Resources.plus_custom;
             button1.Location = new Point(360, 414);
             button1.Name = "button1";
-            button1.Size = new Size(75, 35);
+            button1.Size = new Size(55, 35);
             button1.TabIndex = 1;
-            button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(441, 414);
+            button2.Image = Properties.Resources.pencil_custom;
+            button2.Location = new Point(421, 414);
             button2.Name = "button2";
-            button2.Size = new Size(75, 35);
+            button2.Size = new Size(55, 35);
             button2.TabIndex = 2;
-            button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(522, 414);
+            button3.Image = Properties.Resources.delete_custom;
+            button3.Location = new Point(482, 414);
             button3.Name = "button3";
-            button3.Size = new Size(75, 35);
+            button3.Size = new Size(55, 35);
             button3.TabIndex = 3;
-            button3.Text = "button3";
             button3.UseVisualStyleBackColor = true;
             // 
             // Effects
@@ -80,7 +80,7 @@
             Controls.Add(listView1);
             Name = "Effects";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Effects";
+            Text = "Effekte";
             ResumeLayout(false);
         }
 

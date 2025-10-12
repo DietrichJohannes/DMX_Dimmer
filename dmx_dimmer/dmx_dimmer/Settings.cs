@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 using System.Windows.Forms;
 
 namespace dmx_dimmer
 {
     public partial class Settings : Form
     {
+        private bool sendWhenDirty = false;
+
         public Settings()
         {
             InitializeComponent();
@@ -21,37 +17,66 @@ namespace dmx_dimmer
 
         private void LoadSettings()
         {
+            // Korrekte IPv4-Maske: 000.000.000.000
             ip_label.Mask = "000\\.000\\.0\\.000";
-            ip_label.Text = ConfigurationManager.AppSettings["ArtNetIP"];
+
+            // Werte laden (mit Default)
+            ip_label.Text = ConfigurationManager.AppSettings["ArtNetIP"] ?? "192.168.0.10";
+
+            if (bool.TryParse(ConfigurationManager.AppSettings["SendOnlyWhenDirty"], out var b))
+                sendWhenDirty = b;
+
+            // UI sync
+            chkSendOnlyWhenDirty.Checked = sendWhenDirty;
         }
 
         private void SaveSettings()
         {
-            // Aktuelle Konfiguration laden
+            // 1) IP validieren
+            var ipText = (ip_label.Text ?? "").Trim();
+            if (!IPAddress.TryParse(ipText, out _))
+            {
+                MessageBox.Show("Bitte eine gültige IPv4-Adresse eingeben.", "Ungültige IP",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2) Config öffnen (App-Config)
             var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-            // Wert aktualisieren oder hinzufügen
-            if (config.AppSettings.Settings["ArtNetIP"] == null)
-            {
-                config.AppSettings.Settings.Add("ArtNetIP", ip_label.Text);
-            }
-            else
-            {
-                config.AppSettings.Settings["ArtNetIP"].Value = ip_label.Text;
-            }
+            // 3) Werte setzen/aktualisieren
+            SetAppSetting(config, "ArtNetIP", ipText);
+            SetAppSetting(config, "SendOnlyWhenDirty", chkSendOnlyWhenDirty.Checked.ToString().ToLowerInvariant());
 
-            // Änderungen speichern
+            // 4) Speichern & Refresh
             config.Save(ConfigurationSaveMode.Modified);
-
-            // Konfiguration neu laden, damit andere Stellen im Programm den neuen Wert sehen
             ConfigurationManager.RefreshSection("appSettings");
 
-            MessageBox.Show("Einstellungen wurden gespeichert.", "Speichern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // internen Cache updaten (optional)
+            sendWhenDirty = chkSendOnlyWhenDirty.Checked;
+
+            MessageBox.Show("Einstellungen wurden gespeichert.", "Speichern",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private static void SetAppSetting(Configuration config, string key, string value)
+        {
+            var settings = config.AppSettings.Settings;
+            if (settings[key] == null)
+                settings.Add(key, value);
+            else
+                settings[key].Value = value;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveSettings();
+            this.Close();
+        }
+
+        private void chkSendOnlyWhenDirty_CheckedChanged(object sender, EventArgs e)
+        {
+            sendWhenDirty = chkSendOnlyWhenDirty.Checked;
         }
     }
 }

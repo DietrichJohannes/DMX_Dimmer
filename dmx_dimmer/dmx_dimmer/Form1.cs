@@ -61,7 +61,11 @@ namespace dmx_dimmer
             else
             {
                 string ip = ConfigurationManager.AppSettings["ArtNetIP"];
-                _engine = new DMX_Engine(ip, universe: 0, fps: 30, sendOnlyWhenDirty: true);
+                bool whenDirty = false;
+                bool.TryParse(ConfigurationManager.AppSettings["SendOnlyWhenDirty"], out whenDirty);
+
+                _engine = new DMX_Engine(ip, universe: 0, fps: 30, sendOnlyWhenDirty: whenDirty);
+
 
                 btn_start_stop_sheduler.Image = Resources.stop;
                 btn_start_stop_sheduler.Text = "Sheduler Stoppen";
@@ -124,6 +128,10 @@ namespace dmx_dimmer
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                _engine.Dispose();
             }
         }
 

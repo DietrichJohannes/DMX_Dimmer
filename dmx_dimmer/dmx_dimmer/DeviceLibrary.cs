@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using System.Windows.Forms;
+
 
 namespace dmx_dimmer
 {
@@ -36,7 +38,7 @@ namespace dmx_dimmer
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"[DeviceLibrary] Fehler beim Laden {file}: {ex.Message}");
+                    MessageBox.Show($"[DeviceLibrary] Fehler beim Laden {file}: {ex.Message}");
                 }
             }
 

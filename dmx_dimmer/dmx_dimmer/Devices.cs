@@ -40,11 +40,23 @@ namespace dmx_dimmer
             BuildTree();
             RefreshList();
 
-            // Events aus Designer zuweisen, falls nicht schon verdrahtet:
-            // proj_devices.SelectedIndexChanged += proj_devices_SelectedIndexChanged;
-            // add_device.Click += add_device_Click;
-            // device_tree.AfterSelect += device_tree_AfterSelect;
+            // Events zuweisen (nur wenn nicht schon im Designer gesetzt)
+            proj_devices.SelectedIndexChanged += proj_devices_SelectedIndexChanged;
+            device_tree.AfterSelect += device_tree_AfterSelect;
         }
+
+        private TreeNode FindFirstTemplateNodeRecursive(TreeNode node)
+        {
+            if (node?.Tag is DeviceTemplate) return node;
+            foreach (TreeNode child in node.Nodes)
+            {
+                var f = FindFirstTemplateNodeRecursive(child);
+                if (f != null) return f;
+            }
+            return null;
+        }
+
+
 
         // ===================== UI: Tree & List =====================
 
@@ -121,14 +133,28 @@ namespace dmx_dimmer
 
         private void device_tree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            // hier könntest du rechts oben Details anzeigen (optional)
-            // if (e.Node?.Tag is DeviceTemplate t) { ... }
+            if (e.Node?.Tag is DeviceTemplate t)
+                ShowTemplateDescription(t);
         }
 
         private void proj_devices_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // optional: beim Selektieren in der Liste dynamische Kanalregler bauen
-            // (siehe vorherige Antwort mit device_ctrls / TrackBars)
+            if (proj_devices.SelectedItems.Count == 0) return;
+
+            var it = proj_devices.SelectedItems[0];
+            // Annahme: .Tag trägt eine DeviceInstance mit Eigenschaft .Template
+            if (it.Tag is DeviceInstance inst && inst.Template != null)
+                ShowTemplateDescription(inst.Template);
+        }
+
+        // Zeigt die Gerätebeschreibung in dem Label "device_info" an
+        private void ShowTemplateDescription(DeviceTemplate t)
+        {
+            if (device_info == null) return; // falls im Designer noch nicht vorhanden
+            device_info.Text = "";
+            device_info.Text = (t != null && !string.IsNullOrWhiteSpace(t.Description))
+                ? t.Description
+                : "(Keine Beschreibung vorhanden.)";
         }
 
         // ===================== "+" Button =====================

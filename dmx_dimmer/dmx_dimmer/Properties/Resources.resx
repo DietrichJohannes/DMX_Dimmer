@@ -127,20 +127,23 @@
   <data name="track-light-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\track-light-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="plus-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="dmx_dimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dmx_dimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="folder-custom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\folder-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus-box-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus-box-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="play-circle-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\play-circle-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="folder-custom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\folder-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="plus-box-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus-box-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dip-Switches-Default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dip-Switches-Default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,7 +151,13 @@
   <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pencil-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pencil-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus-custom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus-custom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

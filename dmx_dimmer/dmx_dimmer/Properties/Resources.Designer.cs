@@ -73,6 +73,16 @@ namespace dmx_dimmer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap delete_custom {
+            get {
+                object obj = ResourceManager.GetObject("delete-custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Dip_Switches_Default {
             get {
                 object obj = ResourceManager.GetObject("Dip-Switches-Default", resourceCulture);
@@ -113,6 +123,16 @@ namespace dmx_dimmer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pencil_custom {
+            get {
+                object obj = ResourceManager.GetObject("pencil-custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play {
             get {
                 object obj = ResourceManager.GetObject("play", resourceCulture);
@@ -146,6 +166,16 @@ namespace dmx_dimmer.Properties {
         internal static System.Drawing.Bitmap plus_custom {
             get {
                 object obj = ResourceManager.GetObject("plus-custom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_custom1 {
+            get {
+                object obj = ResourceManager.GetObject("plus-custom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
