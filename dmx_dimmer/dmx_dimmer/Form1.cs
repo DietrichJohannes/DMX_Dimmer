@@ -92,7 +92,13 @@ namespace dmx_dimmer
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            _engine.SetBlackout();
+            if (_engine != null) {
+                _engine.SetBlackout();
+            }
+            else
+            {
+                MessageBox.Show("DMX Engine ist gesoppt!");
+            }
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -103,7 +109,14 @@ namespace dmx_dimmer
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            _engine.SetBlackout();
+            if (_engine != null)
+            {
+                _engine.SetBlackout();
+            }
+            else
+            {
+                MessageBox.Show("DMX Engine ist gesoppt!");
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -131,7 +144,10 @@ namespace dmx_dimmer
             }
             else
             {
-                _engine.Dispose();
+                if (_engine != null)
+                {
+                    _engine.Dispose();
+                }
             }
         }
 

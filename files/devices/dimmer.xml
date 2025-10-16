@@ -1,8 +1,7 @@
 <!-- DeviceTemplates/profiler.xml -->
-<DeviceTemplate name="Dimmer" category="Generic/Dimmer">
+<DeviceTemplate name="Dimmer" category="Allgemein">
   <Description>1-Kanal Dimmer</Description>
   <Channels>
-    <!-- offset ist relativ zum Startkanal der Instanz (1-basiert in UI, intern 0-basiert rechnen wir unten) -->
     <Channel name="Ch1"   offset="0" default="0" mergeMode="HTP" />
   </Channels>
 </DeviceTemplate>

@@ -1,8 +1,7 @@
 <!-- DeviceTemplates/profiler.xml -->
-<DeviceTemplate name="Lampe" category="Generic/Scheinwerfer">
+<DeviceTemplate name="Lampe" category="Allgemein">
   <Description>Ein Einfarbiger Scheinwerfer</Description>
   <Channels>
-    <!-- offset ist relativ zum Startkanal der Instanz (1-basiert in UI, intern 0-basiert rechnen wir unten) -->
     <Channel name="OnOff"   offset="0" default="0" mergeMode="HTP" />
   </Channels>
 </DeviceTemplate>

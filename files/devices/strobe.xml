@@ -1,0 +1,7 @@
+<!-- DeviceTemplates/profiler.xml -->
+<DeviceTemplate name="Strobe" category="Allgemein">
+  <Description>1-Kanal Strobe</Description>
+  <Channels>
+    <Channel name="Strobe"   offset="0" default="0" mergeMode="HTP" />
+  </Channels>
+</DeviceTemplate>

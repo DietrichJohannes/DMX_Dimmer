@@ -1,5 +1,5 @@
 <!-- DeviceTemplates/RGBA.xml -->
-<DeviceTemplate name="RGBA" category="Generic/RGB-RGBA">
+<DeviceTemplate name="RGBA" category="Allgemein">
   <Description>Ein 4-Kanal RGBA-Gerät</Description>
   <Channels>
     <Channel name="Red"   offset="0" default="0" mergeMode="HTP" />

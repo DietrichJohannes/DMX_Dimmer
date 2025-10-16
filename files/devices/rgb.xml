@@ -1,8 +1,7 @@
 <!-- DeviceTemplates/RGB.xml -->
-<DeviceTemplate name="RGB" category="Generic/RGB-RGBA">
+<DeviceTemplate name="RGB" category="Allgemein">
   <Description>Ein 3-Kanal RGB-Gerät</Description>
   <Channels>
-    <!-- offset ist relativ zum Startkanal der Instanz (1-basiert in UI, intern 0-basiert rechnen wir unten) -->
     <Channel name="Red"   offset="0" default="0" mergeMode="HTP" />
     <Channel name="Green" offset="1" default="0" mergeMode="HTP" />
     <Channel name="Blue"  offset="2" default="0" mergeMode="HTP" />

@@ -1,0 +1,10 @@
+<!-- DeviceTemplates/RGBA.xml -->
+<DeviceTemplate name="RGBA" category="Allgemein">
+  <Description>Ein 4-Kanal RGBW-Gerät</Description>
+  <Channels>
+    <Channel name="Red"   offset="0" default="0" mergeMode="HTP" />
+    <Channel name="Green" offset="1" default="0" mergeMode="HTP" />
+    <Channel name="Blue"  offset="2" default="0" mergeMode="HTP" />
+    <Channel name="White" offset="3" default="0" mergeMode="HTP" />
+  </Channels>
+</DeviceTemplate>
