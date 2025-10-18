@@ -34,6 +34,9 @@
             button1 = new Button();
             chkSendOnlyWhenDirty = new CheckBox();
             label2 = new Label();
+            label3 = new Label();
+            dmx_fps = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)dmx_fps).BeginInit();
             SuspendLayout();
             // 
             // ip_label
@@ -65,7 +68,7 @@
             // 
             // chkSendOnlyWhenDirty
             // 
-            chkSendOnlyWhenDirty.Location = new Point(275, 54);
+            chkSendOnlyWhenDirty.Location = new Point(208, 109);
             chkSendOnlyWhenDirty.Name = "chkSendOnlyWhenDirty";
             chkSendOnlyWhenDirty.Size = new Size(82, 19);
             chkSendOnlyWhenDirty.TabIndex = 3;
@@ -75,17 +78,38 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 53);
+            label2.Location = new Point(16, 113);
             label2.Name = "label2";
             label2.Size = new Size(183, 15);
             label2.TabIndex = 4;
             label2.Text = "DMX nur bei Änderungen senden";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 53);
+            label3.Name = "label3";
+            label3.Size = new Size(73, 45);
+            label3.TabIndex = 5;
+            label3.Text = "DMX\r\nSenderate\r\npro Sekunde";
+            // 
+            // dmx_fps
+            // 
+            dmx_fps.Location = new Point(157, 53);
+            dmx_fps.Maximum = new decimal(new int[] { 40, 0, 0, 0 });
+            dmx_fps.Minimum = new decimal(new int[] { 30, 0, 0, 0 });
+            dmx_fps.Name = "dmx_fps";
+            dmx_fps.Size = new Size(133, 23);
+            dmx_fps.TabIndex = 6;
+            dmx_fps.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(397, 206);
+            Controls.Add(dmx_fps);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(chkSendOnlyWhenDirty);
             Controls.Add(button1);
@@ -95,6 +119,7 @@
             Name = "Settings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Einstellungen";
+            ((System.ComponentModel.ISupportInitialize)dmx_fps).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -106,5 +131,7 @@
         private Button button1;
         private CheckBox chkSendOnlyWhenDirty;
         private Label label2;
+        private Label label3;
+        private NumericUpDown dmx_fps;
     }
 }

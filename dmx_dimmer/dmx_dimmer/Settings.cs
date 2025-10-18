@@ -28,6 +28,9 @@ namespace dmx_dimmer
 
             // UI sync
             chkSendOnlyWhenDirty.Checked = sendWhenDirty;
+
+            dmx_fps.Value = int.Parse(ConfigurationManager.AppSettings["DMXFPS"] ?? "30");
+
         }
 
         private void SaveSettings()
@@ -47,6 +50,7 @@ namespace dmx_dimmer
             // 3) Werte setzen/aktualisieren
             SetAppSetting(config, "ArtNetIP", ipText);
             SetAppSetting(config, "SendOnlyWhenDirty", chkSendOnlyWhenDirty.Checked.ToString().ToLowerInvariant());
+            SetAppSetting(config, "DMXFPS", dmx_fps.Value.ToString());
 
             // 4) Speichern & Refresh
             config.Save(ConfigurationSaveMode.Modified);
@@ -55,7 +59,7 @@ namespace dmx_dimmer
             // internen Cache updaten (optional)
             sendWhenDirty = chkSendOnlyWhenDirty.Checked;
 
-            MessageBox.Show("Einstellungen wurden gespeichert.", "Speichern",
+            MessageBox.Show("Einstellungen erfolgreich gespeichert.", "Speichern",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

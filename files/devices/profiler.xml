@@ -1,5 +1,5 @@
 <!-- DeviceTemplates/profiler.xml -->
-<DeviceTemplate name="Lampe" category="Allgemein">
+<DeviceTemplate name="Scheinwerfer (kw/ww)" category="Allgemein">
   <Description>Ein Einfarbiger Scheinwerfer</Description>
   <Channels>
     <Channel name="OnOff"   offset="0" default="0" mergeMode="HTP" />

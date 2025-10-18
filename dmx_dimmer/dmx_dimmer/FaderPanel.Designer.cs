@@ -972,21 +972,21 @@
             // 
             // buttonPrev
             // 
+            buttonPrev.Image = Properties.Resources.arrow_left_box_custom;
             buttonPrev.Location = new Point(87, 61);
             buttonPrev.Name = "buttonPrev";
             buttonPrev.Size = new Size(75, 45);
             buttonPrev.TabIndex = 75;
-            buttonPrev.Text = "<";
             buttonPrev.UseVisualStyleBackColor = true;
             buttonPrev.Click += buttonPrev_Click;
             // 
             // buttonNext
             // 
+            buttonNext.Image = Properties.Resources.arrow_right_box_custom;
             buttonNext.Location = new Point(168, 61);
             buttonNext.Name = "buttonNext";
             buttonNext.Size = new Size(75, 45);
             buttonNext.TabIndex = 76;
-            buttonNext.Text = ">";
             buttonNext.UseVisualStyleBackColor = true;
             buttonNext.Click += buttonNext_Click;
             // 

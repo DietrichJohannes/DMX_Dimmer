@@ -42,6 +42,7 @@
             tabPage3 = new TabPage();
             button8 = new Button();
             tabPage4 = new TabPage();
+            button9 = new Button();
             button2 = new Button();
             toolStrip2 = new ToolStrip();
             toolStripButton3 = new ToolStripButton();
@@ -55,7 +56,6 @@
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
-            button9 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -234,6 +234,18 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Steuerung";
             // 
+            // button9
+            // 
+            button9.Image = (Image)resources.GetObject("button9.Image");
+            button9.Location = new Point(84, 30);
+            button9.Name = "button9";
+            button9.Size = new Size(75, 75);
+            button9.TabIndex = 11;
+            button9.Text = "Textbuch";
+            button9.TextAlign = ContentAlignment.BottomCenter;
+            button9.TextImageRelation = TextImageRelation.ImageAboveText;
+            button9.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
             button2.Image = (Image)resources.GetObject("button2.Image");
@@ -266,6 +278,7 @@
             toolStripButton3.Name = "toolStripButton3";
             toolStripButton3.Size = new Size(23, 22);
             toolStripButton3.Text = "toolStripButton3";
+            toolStripButton3.ToolTipText = "Neues Projekt";
             // 
             // toolStripButton1
             // 
@@ -275,6 +288,7 @@
             toolStripButton1.Name = "toolStripButton1";
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.ToolTipText = "Speichern";
             // 
             // toolStripButton2
             // 
@@ -284,6 +298,7 @@
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(23, 22);
             toolStripButton2.Text = "toolStripButton2";
+            toolStripButton2.ToolTipText = "Projekt öffnen";
             // 
             // toolStripSeparator1
             // 
@@ -309,6 +324,7 @@
             toolStripButton4.Name = "toolStripButton4";
             toolStripButton4.Size = new Size(23, 22);
             toolStripButton4.Text = "toolStripButton4";
+            toolStripButton4.ToolTipText = "Blackout";
             toolStripButton4.Click += toolStripButton4_Click;
             // 
             // toolStripSeparator2
@@ -345,18 +361,6 @@
             toolStrip1.Size = new Size(1018, 25);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
-            // 
-            // button9
-            // 
-            button9.Image = (Image)resources.GetObject("button9.Image");
-            button9.Location = new Point(84, 30);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 75);
-            button9.TabIndex = 11;
-            button9.Text = "Textbuch";
-            button9.TextAlign = ContentAlignment.BottomCenter;
-            button9.TextImageRelation = TextImageRelation.ImageAboveText;
-            button9.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

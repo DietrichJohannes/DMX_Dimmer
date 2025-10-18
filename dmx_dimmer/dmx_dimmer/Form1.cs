@@ -63,8 +63,9 @@ namespace dmx_dimmer
                 string ip = ConfigurationManager.AppSettings["ArtNetIP"];
                 bool whenDirty = false;
                 bool.TryParse(ConfigurationManager.AppSettings["SendOnlyWhenDirty"], out whenDirty);
+                int fps = int.Parse(ConfigurationManager.AppSettings["DMXFPS"]);
 
-                _engine = new DMX_Engine(ip, universe: 0, fps: 30, sendOnlyWhenDirty: whenDirty);
+                _engine = new DMX_Engine(ip, universe: 0, fps, whenDirty);
 
 
                 btn_start_stop_sheduler.Image = Resources.stop;
