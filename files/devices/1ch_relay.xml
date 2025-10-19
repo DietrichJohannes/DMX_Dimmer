@@ -1,0 +1,7 @@
+<!-- DeviceTemplate/1Ch_Relay.xml -->
+<DeviceTemplate name="1Ch Relais" category="Relais">
+<Description>Ein schaltbarer Ausgang</Description>
+<Channels>
+<Channel name="Ch1" offset="0" default="0" mergeMode="LTP"/>
+</Channels>
+</DeviceTemplate>

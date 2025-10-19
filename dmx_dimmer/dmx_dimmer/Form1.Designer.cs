@@ -56,6 +56,7 @@
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
+            label2 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -194,7 +195,7 @@
             button7.Name = "button7";
             button7.Size = new Size(75, 75);
             button7.TabIndex = 15;
-            button7.Text = "Geräte\r\nSzenen";
+            button7.Text = "Szenen";
             button7.TextAlign = ContentAlignment.BottomCenter;
             button7.TextImageRelation = TextImageRelation.ImageAboveText;
             button7.UseVisualStyleBackColor = true;
@@ -362,11 +363,22 @@
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label2.Location = new Point(818, 189);
+            label2.Name = "label2";
+            label2.Size = new Size(184, 68);
+            label2.TabIndex = 17;
+            label2.Text = "Sheduler im Leerlauf";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1018, 282);
+            Controls.Add(label2);
             Controls.Add(toolStrip2);
             Controls.Add(tabControl1);
             Controls.Add(label1);
@@ -416,5 +428,6 @@
         private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
         private ToolStrip toolStrip1;
         private Button button9;
+        private Label label2;
     }
 }

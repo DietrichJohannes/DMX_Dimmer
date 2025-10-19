@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\faderpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\faderpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\faderpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\faderpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\scene_rgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\scene_forms\\scene_rgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\scene_rgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\scene_forms\\scene_rgb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|g:\\programme\\projekte\\dmx dimmer\\dmx_dimmer\\dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D54B036E-FDE2-4827-AE00-1D2B528AC43E}|dmx_dimmer\\dmx_dimmer.csproj|solutionrelative:dmx_dimmer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 308,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,15 +42,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FaderPanel.cs [Entwurf]",
+              "DocumentIndex": 1,
+              "Title": "FaderPanel.cs",
               "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\FaderPanel.cs",
               "RelativeDocumentMoniker": "dmx_dimmer\\FaderPanel.cs",
-              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\FaderPanel.cs [Entwurf]",
-              "RelativeToolTip": "dmx_dimmer\\FaderPanel.cs [Entwurf]",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\FaderPanel.cs",
+              "RelativeToolTip": "dmx_dimmer\\FaderPanel.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAowI4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T12:18:30.32Z",
+              "WhenOpened": "2025-10-19T07:36:08.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Scene.cs",
+              "RelativeDocumentMoniker": "dmx_dimmer\\Scene.cs",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Scene.cs",
+              "RelativeToolTip": "dmx_dimmer\\Scene.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAADgvxQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T07:37:46.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Scene_rgb.cs [Entwurf]",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "RelativeDocumentMoniker": "dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\Scene_rgb.cs [Entwurf]",
+              "RelativeToolTip": "dmx_dimmer\\scene_forms\\Scene_rgb.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T07:31:58.742Z",
               "EditorCaption": " [Entwurf]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Scene_rgb.cs",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "RelativeDocumentMoniker": "dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "RelativeToolTip": "dmx_dimmer\\scene_forms\\Scene_rgb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T07:29:11.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Entwurf]",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs",
+              "RelativeDocumentMoniker": "dmx_dimmer\\Form1.cs",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs [Entwurf]",
+              "RelativeToolTip": "dmx_dimmer\\Form1.cs [Entwurf]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T07:24:00.636Z",
+              "EditorCaption": " [Entwurf]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs",
+              "RelativeDocumentMoniker": "dmx_dimmer\\Form1.cs",
+              "ToolTip": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\Form1.cs",
+              "RelativeToolTip": "dmx_dimmer\\Form1.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAArwHUAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T07:22:59.693Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -78,13 +78,6 @@ namespace dmx_dimmer
             initDmxEngine();
         }
 
-
-        protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            _engine?.Dispose();
-            base.OnFormClosing(e);
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             FaderPanel panel = new FaderPanel(_engine);
@@ -122,7 +115,8 @@ namespace dmx_dimmer
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            Scene scene = new Scene(_engine);
+            scene.Show();
         }
         private void button8_Click(object sender, EventArgs e)
         {

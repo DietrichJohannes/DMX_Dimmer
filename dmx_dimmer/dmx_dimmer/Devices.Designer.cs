@@ -34,13 +34,15 @@
             add_device = new Button();
             proj_devices = new ListView();
             device_info = new Label();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // treeView1
             // 
-            treeView1.Location = new Point(604, 12);
+            treeView1.Location = new Point(589, 12);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(615, 236);
+            treeView1.Size = new Size(616, 236);
             treeView1.TabIndex = 2;
             // 
             // device_tree
@@ -54,9 +56,9 @@
             // add_device
             // 
             add_device.Image = Properties.Resources.plus_custom;
-            add_device.Location = new Point(406, 506);
+            add_device.Location = new Point(406, 496);
             add_device.Name = "add_device";
-            add_device.Size = new Size(40, 25);
+            add_device.Size = new Size(55, 35);
             add_device.TabIndex = 4;
             add_device.Tag = "";
             add_device.UseVisualStyleBackColor = true;
@@ -64,9 +66,9 @@
             // 
             // proj_devices
             // 
-            proj_devices.Location = new Point(604, 254);
+            proj_devices.Location = new Point(589, 254);
             proj_devices.Name = "proj_devices";
-            proj_devices.Size = new Size(615, 277);
+            proj_devices.Size = new Size(616, 277);
             proj_devices.TabIndex = 5;
             proj_devices.UseCompatibleStateImageBehavior = false;
             // 
@@ -75,15 +77,37 @@
             device_info.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             device_info.Location = new Point(406, 12);
             device_info.Name = "device_info";
-            device_info.Size = new Size(192, 236);
+            device_info.Size = new Size(177, 236);
             device_info.TabIndex = 6;
             device_info.Text = "Beschreibung";
+            // 
+            // button1
+            // 
+            button1.Image = Properties.Resources.pencil_custom;
+            button1.Location = new Point(467, 496);
+            button1.Name = "button1";
+            button1.Size = new Size(55, 35);
+            button1.TabIndex = 7;
+            button1.Tag = "";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Image = Properties.Resources.delete_custom;
+            button2.Location = new Point(528, 496);
+            button2.Name = "button2";
+            button2.Size = new Size(55, 35);
+            button2.TabIndex = 8;
+            button2.Tag = "";
+            button2.UseVisualStyleBackColor = true;
             // 
             // Devices
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1231, 543);
+            ClientSize = new Size(1217, 543);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(device_info);
             Controls.Add(proj_devices);
             Controls.Add(add_device);
@@ -102,5 +126,7 @@
         private Button add_device;
         private ListView proj_devices;
         private Label device_info;
+        private Button button1;
+        private Button button2;
     }
 }

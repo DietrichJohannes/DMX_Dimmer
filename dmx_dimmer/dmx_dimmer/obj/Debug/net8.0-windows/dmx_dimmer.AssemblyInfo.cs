@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dmx_dimmer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51f3ca75180fedb13d11465fb59a268e13a46e7d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9874948b9211f0c496244378dee83a07eab10da")]
 [assembly: System.Reflection.AssemblyProductAttribute("dmx_dimmer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dmx_dimmer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

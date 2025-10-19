@@ -70,7 +70,7 @@
             // 
             chkSendOnlyWhenDirty.Location = new Point(208, 109);
             chkSendOnlyWhenDirty.Name = "chkSendOnlyWhenDirty";
-            chkSendOnlyWhenDirty.Size = new Size(82, 19);
+            chkSendOnlyWhenDirty.Size = new Size(17, 19);
             chkSendOnlyWhenDirty.TabIndex = 3;
             chkSendOnlyWhenDirty.UseVisualStyleBackColor = true;
             chkSendOnlyWhenDirty.CheckedChanged += chkSendOnlyWhenDirty_CheckedChanged;
@@ -97,7 +97,7 @@
             // 
             dmx_fps.Location = new Point(157, 53);
             dmx_fps.Maximum = new decimal(new int[] { 40, 0, 0, 0 });
-            dmx_fps.Minimum = new decimal(new int[] { 30, 0, 0, 0 });
+            dmx_fps.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             dmx_fps.Name = "dmx_fps";
             dmx_fps.Size = new Size(133, 23);
             dmx_fps.TabIndex = 6;
