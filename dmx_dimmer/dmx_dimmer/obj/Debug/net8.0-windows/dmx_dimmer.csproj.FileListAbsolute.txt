@@ -30,3 +30,4 @@ G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\bin\Debug\net8.0-windows\
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.scene_forms.Scene_rgb.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.scene.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.GraphicStageView.resources
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.AboutForm.resources

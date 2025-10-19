@@ -9,12 +9,16 @@ namespace dmx_dimmer
     {
         private DMX_Engine _engine;
         DeviceStore _deviceStore = new DeviceStore();
+        PowerStatus pwr = SystemInformation.PowerStatus;
+
+        private System.Windows.Forms.Timer timer;
 
         public Form1()
         {
             InitializeComponent();
             placeWindow();
             initDmxEngine();
+            InitializeBatteryMonitor();
         }
 
         private void placeWindow()
@@ -22,6 +26,47 @@ namespace dmx_dimmer
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(0, 0);
             this.Width = Screen.PrimaryScreen.Bounds.Width;
+        }
+
+
+        private void InitializeBatteryMonitor()
+        {
+            // Timer erstellen (alle 5 Sekunden aktualisieren)
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 10000; // 10 Sekunden
+            timer.Tick += UpdateBatteryStatus;
+            timer.Start();
+
+            // Initiales Update
+            UpdateBatteryStatus(null, null);
+        }
+
+        private void UpdateBatteryStatus(object sender, EventArgs e)
+        {
+            PowerStatus pwr = SystemInformation.PowerStatus;
+
+            if (pwr.BatteryChargeStatus == BatteryChargeStatus.NoSystemBattery)
+            {
+                lblBattery.Text = "Kein Akku vorhanden";
+                BatteryBar.Value = 0;
+            }
+            else
+            {
+                BatteryBar.Style = ProgressBarStyle.Continuous;
+
+                int percent = (int)(pwr.BatteryLifePercent * 100);
+                BatteryBar.Value = percent;
+                lblBattery.Text = $"Akkustand: {percent}%";
+
+                if (pwr.PowerLineStatus == PowerLineStatus.Online)
+                {
+                    lblBattery.Text += " (Netzbetrieb)";
+                }
+                else
+                {
+                    lblBattery.Text += " (Akkubetrieb)";
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -151,6 +196,12 @@ namespace dmx_dimmer
         {
             GraphicStageView graphicStageView = new GraphicStageView();
             graphicStageView.Show();
+        }
+
+        private void überDenEntwicklerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

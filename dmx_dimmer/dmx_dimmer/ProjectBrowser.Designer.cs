@@ -57,7 +57,7 @@
             // 
             // button2
             // 
-            button2.Image = Properties.Resources.folder_custom1;
+            button2.Image = Properties.Resources.folder_custom;
             button2.Location = new Point(536, 329);
             button2.Name = "button2";
             button2.Size = new Size(100, 100);

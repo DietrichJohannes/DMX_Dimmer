@@ -32,6 +32,7 @@
             label1 = new Label();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            button10 = new Button();
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -57,7 +58,9 @@
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             label2 = new Label();
-            button10 = new Button();
+            BatteryBar = new ProgressBar();
+            label3 = new Label();
+            lblBattery = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -72,7 +75,6 @@
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Bahnschrift", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Turquoise;
-            label1.Image = Properties.Resources.dmx_dimmer;
             label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(12, 189);
             label1.Name = "label1";
@@ -108,6 +110,19 @@
             tabPage1.Size = new Size(986, 130);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Geräte";
+            // 
+            // button10
+            // 
+            button10.Image = Properties.Resources.stage;
+            button10.Location = new Point(87, 30);
+            button10.Name = "button10";
+            button10.Size = new Size(75, 75);
+            button10.TabIndex = 13;
+            button10.Text = "Bühne";
+            button10.TextAlign = ContentAlignment.BottomCenter;
+            button10.TextImageRelation = TextImageRelation.ImageAboveText;
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // button6
             // 
@@ -353,6 +368,7 @@
             überDenEntwicklerToolStripMenuItem.Name = "überDenEntwicklerToolStripMenuItem";
             überDenEntwicklerToolStripMenuItem.Size = new Size(179, 22);
             überDenEntwicklerToolStripMenuItem.Text = "Über den Entwickler";
+            überDenEntwicklerToolStripMenuItem.Click += überDenEntwicklerToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -375,24 +391,38 @@
             label2.Text = "Sheduler im Leerlauf";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // button10
+            // BatteryBar
             // 
-            button10.Image = Properties.Resources.track_light_custom;
-            button10.Location = new Point(87, 30);
-            button10.Name = "button10";
-            button10.Size = new Size(75, 75);
-            button10.TabIndex = 13;
-            button10.Text = "Bühne";
-            button10.TextAlign = ContentAlignment.BottomCenter;
-            button10.TextImageRelation = TextImageRelation.ImageAboveText;
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
+            BatteryBar.Location = new Point(98, 247);
+            BatteryBar.Name = "BatteryBar";
+            BatteryBar.Size = new Size(100, 23);
+            BatteryBar.TabIndex = 14;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 251);
+            label3.Name = "label3";
+            label3.Size = new Size(63, 15);
+            label3.TabIndex = 14;
+            label3.Text = "Akkustand";
+            // 
+            // lblBattery
+            // 
+            lblBattery.Location = new Point(204, 247);
+            lblBattery.Name = "lblBattery";
+            lblBattery.Size = new Size(120, 23);
+            lblBattery.TabIndex = 14;
+            lblBattery.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1018, 282);
+            Controls.Add(lblBattery);
+            Controls.Add(label3);
+            Controls.Add(BatteryBar);
             Controls.Add(label2);
             Controls.Add(toolStrip2);
             Controls.Add(tabControl1);
@@ -445,5 +475,8 @@
         private Button button9;
         private Label label2;
         private Button button10;
+        private ProgressBar BatteryBar;
+        private Label label3;
+        private Label lblBattery;
     }
 }

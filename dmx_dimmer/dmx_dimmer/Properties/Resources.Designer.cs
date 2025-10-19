@@ -79,7 +79,18 @@ namespace dmx_dimmer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static string description
+        {
+            get
+            {
+                return ResourceManager.GetString("description", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
@@ -109,7 +120,20 @@ namespace dmx_dimmer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stage
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("stage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
@@ -136,16 +160,6 @@ namespace dmx_dimmer.Properties {
         internal static System.Drawing.Bitmap folder_custom {
             get {
                 object obj = ResourceManager.GetObject("folder-custom", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap folder_custom1 {
-            get {
-                object obj = ResourceManager.GetObject("folder-custom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,16 +210,6 @@ namespace dmx_dimmer.Properties {
         internal static System.Drawing.Bitmap plus_custom {
             get {
                 object obj = ResourceManager.GetObject("plus-custom", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap plus_custom1 {
-            get {
-                object obj = ResourceManager.GetObject("plus-custom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
