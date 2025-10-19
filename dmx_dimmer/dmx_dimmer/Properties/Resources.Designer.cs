@@ -83,6 +83,16 @@ namespace dmx_dimmer.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Bühnenansicht {
+            get {
+                object obj = ResourceManager.GetObject("Bühnenansicht", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap content_save_custom {
             get {
                 object obj = ResourceManager.GetObject("content-save-custom", resourceCulture);

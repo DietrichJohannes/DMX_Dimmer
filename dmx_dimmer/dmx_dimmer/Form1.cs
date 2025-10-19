@@ -86,7 +86,8 @@ namespace dmx_dimmer
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            if (_engine != null) {
+            if (_engine != null)
+            {
                 _engine.SetBlackout();
             }
             else
@@ -146,6 +147,10 @@ namespace dmx_dimmer
             }
         }
 
-
+        private void button10_Click(object sender, EventArgs e)
+        {
+            GraphicStageView graphicStageView = new GraphicStageView();
+            graphicStageView.Show();
+        }
     }
 }

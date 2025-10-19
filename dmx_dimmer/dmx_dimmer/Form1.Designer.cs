@@ -57,6 +57,7 @@
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             label2 = new Label();
+            button10 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -96,6 +97,7 @@
             // tabPage1
             // 
             tabPage1.BackColor = SystemColors.Control;
+            tabPage1.Controls.Add(button10);
             tabPage1.Controls.Add(button6);
             tabPage1.Controls.Add(button5);
             tabPage1.Controls.Add(button4);
@@ -373,6 +375,19 @@
             label2.Text = "Sheduler im Leerlauf";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // button10
+            // 
+            button10.Image = Properties.Resources.track_light_custom;
+            button10.Location = new Point(87, 30);
+            button10.Name = "button10";
+            button10.Size = new Size(75, 75);
+            button10.TabIndex = 13;
+            button10.Text = "Bühne";
+            button10.TextAlign = ContentAlignment.BottomCenter;
+            button10.TextImageRelation = TextImageRelation.ImageAboveText;
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -429,5 +444,6 @@
         private ToolStrip toolStrip1;
         private Button button9;
         private Label label2;
+        private Button button10;
     }
 }

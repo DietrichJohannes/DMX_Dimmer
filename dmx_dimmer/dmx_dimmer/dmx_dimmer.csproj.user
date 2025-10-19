@@ -19,6 +19,9 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GraphicStageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ProjectBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
