@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7LrfQfmwhzw=",
+  "dgSpecHash": "bA7W63rtskY=",
   "success": true,
-  "projectFilePath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
+  "projectFilePath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Anwender\\.nuget\\packages\\system.windows.forms.ribbon35\\3.5.8\\system.windows.forms.ribbon35.3.5.8.nupkg.sha512"
   ],
@@ -11,9 +11,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "Das Paket \"System.Windows.Forms.Ribbon35 3.5.8\" wurde nicht mit dem Projektzielframework \"net8.0-windows7.0\", sondern mit \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" wiederhergestellt. Dieses Paket ist mit Ihrem Projekt möglicherweise nicht vollständig kompatibel.",
-      "projectPath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
+      "projectPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
       "warningLevel": 1,
-      "filePath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
+      "filePath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
       "libraryId": "System.Windows.Forms.Ribbon35",
       "targetGraphs": [
         "net8.0-windows7.0"

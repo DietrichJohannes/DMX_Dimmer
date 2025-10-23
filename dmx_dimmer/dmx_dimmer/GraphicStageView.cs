@@ -28,8 +28,8 @@ namespace dmx_dimmer
             PictureBox fixture = new PictureBox();
             fixture.Width = 40;
             fixture.Height = 40;
-            fixture.BackColor = Color.Yellow;
-            fixture.BorderStyle = BorderStyle.FixedSingle;
+            fixture.Image = Resources.Scheinwerfer;
+            fixture.BorderStyle = BorderStyle.None;
             fixture.Tag = name;
 
             // Position setzen

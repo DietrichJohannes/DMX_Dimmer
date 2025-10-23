@@ -8,18 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using dmx_dimmer.Properties;
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Kolpingbühne Höchstädt")] // Produkt Hersteller
+[assembly: System.Reflection.AssemblyCompanyAttribute("dmx_dimmer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de4a8538047290f19b4c5e8646ef59b7ade09f50")]
-[assembly: System.Reflection.AssemblyProductAttribute("DMX_DIMMER")] // Produktname
-[assembly: System.Reflection.AssemblyTitleAttribute("DMX_DIMMER")]  // Produkt Titel
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.1")]   // Produkt Version
-[assembly: System.Reflection.AssemblyCopyright("© Kolpingbühne Höchstädt 2025")] // Produkt Copyright
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+556cefe4c000f443fc2ac291bfd26f1086a29c3d")]
+[assembly: System.Reflection.AssemblyProductAttribute("dmx_dimmer")]
+[assembly: System.Reflection.AssemblyTitleAttribute("dmx_dimmer")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.1")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
