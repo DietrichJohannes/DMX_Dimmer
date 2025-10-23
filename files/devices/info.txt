@@ -1,0 +1,4 @@
+<ControllType type="1"> // Schalter
+<ControllType type="2"> // Schieberegler
+<ControllType type="3"> // RGB Dialog
+<ControllType type="4"> // RGB mit Schieberegler

@@ -1,8 +1,9 @@
 <!-- DeviceTemplates/profiler.xml -->
 <DeviceTemplate name="Nebelmaschine" category="Nebel">
   <Description>Nebelmaschine (Lüfter / Pumpe)</Description>
+  <ControllType type="2">
   <Channels>
-    <Channel name="Fan"   offset="0" default="0" mergeMode="HTP" />
-    <Channel name="Pump"  offset="1" default="0" mergeMode="HTP"/>
+    <Channel name="Fan" text="Lüfter" offset="0" default="0" mergeMode="HTP" />
+    <Channel name="Pump" text="Pumpe" offset="1" default="0" mergeMode="HTP"/>
   </Channels>
 </DeviceTemplate>

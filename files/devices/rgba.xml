@@ -1,10 +1,11 @@
 <!-- DeviceTemplates/RGBA.xml -->
 <DeviceTemplate name="RGBA" category="Allgemein">
   <Description>Ein 4-Kanal RGBA-Gerät</Description>
+  <ControllType type="3">
   <Channels>
-    <Channel name="Red"   offset="0" default="0" mergeMode="HTP" />
-    <Channel name="Green" offset="1" default="0" mergeMode="HTP" />
-    <Channel name="Blue"  offset="2" default="0" mergeMode="HTP" />
-    <Channel name="Amber" offset="3" default="0" mergeMode="HTP" />
+    <Channel name="Red" text="Rot" offset="0" default="0" mergeMode="HTP" />
+    <Channel name="Green" text="Grün" offset="1" default="0" mergeMode="HTP" />
+    <Channel name="Blue" text="Blau" offset="2" default="0" mergeMode="HTP" />
+    <Channel name="Amber" text="Bernstein" offset="3" default="0" mergeMode="HTP" />
   </Channels>
 </DeviceTemplate>

@@ -1,7 +1,8 @@
 <!-- DeviceTemplates/profiler.xml -->
 <DeviceTemplate name="Scheinwerfer (kw/ww)" category="Allgemein">
   <Description>Ein Einfarbiger Scheinwerfer</Description>
+  <ControllType type="2">
   <Channels>
-    <Channel name="OnOff"   offset="0" default="0" mergeMode="HTP" />
+    <Channel name="Ch1" text="Farbwert" offset="0" default="0" mergeMode="HTP" />
   </Channels>
 </DeviceTemplate>
