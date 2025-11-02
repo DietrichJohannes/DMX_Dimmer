@@ -36,15 +36,18 @@
             label2 = new Label();
             label3 = new Label();
             dmx_fps = new NumericUpDown();
+            password = new TextBox();
+            label4 = new Label();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dmx_fps).BeginInit();
             SuspendLayout();
             // 
             // ip_label
             // 
-            ip_label.Location = new Point(157, 12);
+            ip_label.Location = new Point(163, 12);
             ip_label.Mask = "000\\.000\\.0\\.000";
             ip_label.Name = "ip_label";
-            ip_label.Size = new Size(133, 23);
+            ip_label.Size = new Size(162, 23);
             ip_label.TabIndex = 0;
             // 
             // label1
@@ -58,7 +61,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(310, 171);
+            button1.Location = new Point(251, 223);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -95,19 +98,49 @@
             // 
             // dmx_fps
             // 
-            dmx_fps.Location = new Point(157, 53);
+            dmx_fps.Location = new Point(163, 53);
             dmx_fps.Maximum = new decimal(new int[] { 40, 0, 0, 0 });
             dmx_fps.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             dmx_fps.Name = "dmx_fps";
-            dmx_fps.Size = new Size(133, 23);
+            dmx_fps.Size = new Size(163, 23);
             dmx_fps.TabIndex = 6;
             dmx_fps.Value = new decimal(new int[] { 30, 0, 0, 0 });
+            dmx_fps.ValueChanged += dmx_fps_ValueChanged;
+            // 
+            // password
+            // 
+            password.Location = new Point(163, 161);
+            password.Name = "password";
+            password.Size = new Size(133, 23);
+            password.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(16, 161);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Passwort";
+            // 
+            // button2
+            // 
+            button2.Image = Properties.Resources.eye_outline;
+            button2.Location = new Point(302, 161);
+            button2.Name = "button2";
+            button2.Size = new Size(23, 23);
+            button2.TabIndex = 9;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(397, 206);
+            ClientSize = new Size(338, 258);
+            Controls.Add(button2);
+            Controls.Add(label4);
+            Controls.Add(password);
             Controls.Add(dmx_fps);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -133,5 +166,8 @@
         private Label label2;
         private Label label3;
         private NumericUpDown dmx_fps;
+        private TextBox password;
+        private Label label4;
+        private Button button2;
     }
 }

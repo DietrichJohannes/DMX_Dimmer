@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dmx_dimmer.Properties;
+using System;
 using System.Configuration;
 using System.Net;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace dmx_dimmer
     public partial class Settings : Form
     {
         private bool sendWhenDirty = false;
+        private bool pwVisible = false;
 
         public Settings()
         {
@@ -31,6 +33,8 @@ namespace dmx_dimmer
 
             dmx_fps.Value = int.Parse(ConfigurationManager.AppSettings["DMXFPS"] ?? "30");
 
+            password.Text = ConfigurationManager.AppSettings["Password"] ?? "";
+            password.UseSystemPasswordChar = true;
         }
 
         private void SaveSettings()
@@ -51,6 +55,7 @@ namespace dmx_dimmer
             SetAppSetting(config, "ArtNetIP", ipText);
             SetAppSetting(config, "SendOnlyWhenDirty", chkSendOnlyWhenDirty.Checked.ToString().ToLowerInvariant());
             SetAppSetting(config, "DMXFPS", dmx_fps.Value.ToString());
+            SetAppSetting(config, "Password", password.Text.ToString());
 
             // 4) Speichern & Refresh
             config.Save(ConfigurationSaveMode.Modified);
@@ -81,6 +86,26 @@ namespace dmx_dimmer
         private void chkSendOnlyWhenDirty_CheckedChanged(object sender, EventArgs e)
         {
             sendWhenDirty = chkSendOnlyWhenDirty.Checked;
+        }
+
+        private void dmx_fps_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pwVisible = !pwVisible;
+            password.UseSystemPasswordChar = !pwVisible;
+
+            if(pwVisible)
+            {
+                button2.Image = Resources.eye_closed;
+            }
+            else
+            {
+                button2.Image = Resources.eye_outline;
+            }
         }
     }
 }

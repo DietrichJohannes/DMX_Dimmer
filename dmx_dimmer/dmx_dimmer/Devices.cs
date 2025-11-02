@@ -1,254 +1,260 @@
-﻿using DmxRuntime; // für DMX_Engine, MergeMode etc.
+﻿using DmxRuntime;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace dmx_dimmer
 {
     public partial class Devices : Form
     {
-        private readonly DeviceStore _store;              // zentrale Datenhaltung (IDs, Kollisionen)
-        private readonly DMX_Engine _engine;              // optional: für Live-Defaults
-        private DeviceLibrary _lib;                       // lädt XML-Vorlagen
-        private readonly string _templatesPath;           // Ordner der Geräte-XMLs
+        private readonly DMX_Engine _engine;
+        private readonly string _templatesPath;
+        private readonly List<DeviceInstance> _addedDevices = new(); // lokale Geräteliste
 
-        string folder = ConfigurationManager.AppSettings["DeviceTemplatesPath"];
+        private readonly string folder = ConfigurationManager.AppSettings["DeviceTemplatesPath"];
 
-        public Devices(DeviceStore store, DMX_Engine engine = null, string templatesPath = null)
+        private int _nextId = 1;                    // fortlaufende Idx
+
+        private sealed class DeviceInstance
         {
-            InitializeComponent();
-            _store = store ?? throw new ArgumentNullException(nameof(store));
-            _engine = engine;
-            _templatesPath = templatesPath
-                ?? Path.Combine(folder);
-
-            // bei Änderungen im Store Liste neu aufbauen
-            _store.Changed += (_, __) => RefreshList();
+            public int Idx { get; set; } 
+            public string Name { get; set; }
+            public string TemplateName { get; set; }
+            public int Universe { get; set; }
+            public int StartChannel { get; set; }
+            public int Footprint { get; set; }
         }
 
-        protected override void OnLoad(EventArgs e)
+
+        // Template-Modell
+        private sealed class DeviceTemplate
         {
-            base.OnLoad(e);
-            InitListView();
+            public string Name { get; init; }
+            public string Category { get; init; }
+            public string Description { get; init; }
+            public string FilePath { get; init; }
+            public int Footprint { get; init; }
+        }
 
-            Directory.CreateDirectory(_templatesPath);
-            _lib = DeviceLibrary.LoadFromFolder(_templatesPath);
 
-            BuildTree();
-            RefreshList();
+        public Devices(DMX_Engine engine = null, string templatesPath = null)
+        {
+            InitializeComponent();
 
-            // Events zuweisen (nur wenn nicht schon im Designer gesetzt)
-            proj_devices.SelectedIndexChanged += proj_devices_SelectedIndexChanged;
+            _engine = engine;
+            _templatesPath = templatesPath ?? folder;
+
+            InitDeviceListView();
+            HookTreeEvents();
+            LoadDeviceTemplatesIntoTree();
+        }
+
+        // ===================== UI: Geräteliste =====================
+        private void InitDeviceListView()
+        {
+            if (proj_device == null) return;
+
+            proj_device.View = View.Details;
+            proj_device.FullRowSelect = true;
+            proj_device.GridLines = true;
+
+            proj_device.Columns.Clear();
+            proj_device.Columns.Add("Idx", 60);         
+            proj_device.Columns.Add("Name", 160);
+            proj_device.Columns.Add("Template", 120);
+            proj_device.Columns.Add("Universe", 80);
+            proj_device.Columns.Add("Startkanal", 80);
+            proj_device.Columns.Add("Footprint", 80);
+        }
+
+
+        // ===================== Tree =====================
+        private void HookTreeEvents()
+        {
+            device_tree.AfterSelect -= device_tree_AfterSelect;
             device_tree.AfterSelect += device_tree_AfterSelect;
         }
 
-        private TreeNode FindFirstTemplateNodeRecursive(TreeNode node)
-        {
-            if (node?.Tag is DeviceTemplate) return node;
-            foreach (TreeNode child in node.Nodes)
-            {
-                var f = FindFirstTemplateNodeRecursive(child);
-                if (f != null) return f;
-            }
-            return null;
-        }
-
-
-
-        // ===================== UI: Tree & List =====================
-
-        private void InitListView()
-        {
-            proj_devices.View = View.Details;
-            proj_devices.FullRowSelect = true;
-            proj_devices.GridLines = true;
-
-            if (proj_devices.Columns.Count == 0)
-            {
-                proj_devices.Columns.Add("ID", 60);
-                proj_devices.Columns.Add("Name", 160);
-                proj_devices.Columns.Add("Typ", 160);
-                proj_devices.Columns.Add("Universe", 80);
-                proj_devices.Columns.Add("Start", 70);
-                proj_devices.Columns.Add("Footprint", 80);
-            }
-        }
-
-        private void BuildTree()
+        private void LoadDeviceTemplatesIntoTree()
         {
             device_tree.BeginUpdate();
             device_tree.Nodes.Clear();
 
-            var map = new Dictionary<string, TreeNode>();
-            foreach (var (path, t) in _lib.GroupedByCategory())
+            var rootNode = device_tree.Nodes.Add("Gerätebibliothek");
+            var categories = new Dictionary<string, TreeNode>(StringComparer.OrdinalIgnoreCase);
+            var errors = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(_templatesPath) || !Directory.Exists(_templatesPath))
             {
-                TreeNode parent = null;
-                string running = "";
-                for (int i = 0; i < path.Length; i++)
+                rootNode.Nodes.Add("(Kein gültiger Vorlagen-Pfad)");
+                device_tree.EndUpdate();
+                rootNode.Expand();
+                return;
+            }
+
+            foreach (var file in Directory.EnumerateFiles(_templatesPath, "*.xml", SearchOption.TopDirectoryOnly))
+            {
+                try
                 {
-                    running = (i == 0) ? path[0] : $"{running}/{path[i]}";
-                    if (!map.TryGetValue(running, out var node))
+                    var dev = ParseDeviceTemplate(file);
+                    if (dev == null)
                     {
-                        node = new TreeNode(path[i]);
-                        if (i == 0) device_tree.Nodes.Add(node);
-                        else parent.Nodes.Add(node);
-                        map[running] = node;
+                        errors.Add(Path.GetFileName(file) + " (unerwartete Struktur)");
+                        continue;
                     }
-                    parent = node;
+
+                    if (!categories.TryGetValue(dev.Category, out var catNode))
+                    {
+                        catNode = rootNode.Nodes.Add(dev.Category);
+                        categories[dev.Category] = catNode;
+                    }
+
+                    var node = new TreeNode(dev.Name) { Tag = dev };
+                    catNode.Nodes.Add(node);
                 }
-                var leaf = new TreeNode(t.Name) { Tag = t };
-                parent.Nodes.Add(leaf);
+                catch (Exception ex)
+                {
+                    errors.Add(Path.GetFileName(file) + " (" + ex.GetType().Name + ")");
+                }
             }
 
-            device_tree.ExpandAll();
             device_tree.EndUpdate();
-        }
+            rootNode.Expand();
 
-        private void RefreshList()
-        {
-            var items = _store.GetAll();
-
-            proj_devices.BeginUpdate();
-            proj_devices.Items.Clear();
-
-            foreach (var d in items)
+            // Hilfreiche Mini-Zusammenfassung zeigen
+            if (errors.Count > 0)
             {
-                var it = new ListViewItem(d.Id.ToString());
-                it.SubItems.Add(d.Label);
-                it.SubItems.Add(d.Template.Name);
-                it.SubItems.Add(d.Universe.ToString());
-                it.SubItems.Add(d.StartChannel.ToString());
-                it.SubItems.Add(d.Footprint.ToString());
-                it.Tag = d;
-                proj_devices.Items.Add(it);
+                MessageBox.Show(
+                    "Einige Vorlagen konnten nicht geladen werden:\n- " +
+                    string.Join("\n- ", errors.Take(10)) +
+                    (errors.Count > 10 ? $"\n…(+{errors.Count - 10} weitere)" : ""),
+                    "Vorlagen prüfen",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
             }
-
-            proj_devices.EndUpdate();
         }
 
-        // ===================== Tree/Selection (optional) =====================
 
+        private static DeviceTemplate ParseDeviceTemplate(string filePath)
+        {
+            // Whitespace/Kommentare ignorieren, damit „kommentarlastige“ Dateien sicher geladen werden
+            var settings = new XmlReaderSettings
+            {
+                IgnoreComments = true,
+                IgnoreWhitespace = true,
+                DtdProcessing = DtdProcessing.Ignore
+            };
+
+            using var reader = XmlReader.Create(filePath, settings);
+            var xdoc = XDocument.Load(reader, LoadOptions.None);
+
+            var root = xdoc.Root;
+            if (root == null) return null;
+
+            // Root-Name case-insensitive prüfen
+            if (!string.Equals(root.Name.LocalName, "DeviceTemplate", StringComparison.OrdinalIgnoreCase))
+                return null;
+
+            // Name: Attribut oder Fallback auf Dateiname
+            string name = (string)root.Attribute("name")
+                         ?? (string)root.Element("Name")
+                         ?? Path.GetFileNameWithoutExtension(filePath);
+
+            // Kategorie: Attribut oder Element, Fallback
+            string category = (string)root.Attribute("category")
+                             ?? (string)root.Element("Category")
+                             ?? "Ohne Kategorie";
+
+            // Beschreibung optional
+            string description = (string)root.Element("Description") ?? "";
+
+            // Footprint zählen (Channels kann direkt unter Root ODER in ControllType liegen)
+            int footprint = 0;
+            var channelsRoot =
+                root.Element("Channels") ??
+                root.Element("ControllType")?.Element("Channels");
+            if (channelsRoot != null)
+                footprint = channelsRoot.Elements("Channel").Count();
+
+            return new DeviceTemplate
+            {
+                Name = name,
+                Category = category,
+                Description = description,
+                FilePath = filePath,
+                Footprint = footprint
+            };
+        }
+
+        // ===================== Tree-Event =====================
         private void device_tree_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node?.Tag is DeviceTemplate t)
-                ShowTemplateDescription(t);
+            if (e.Node?.Tag is not DeviceTemplate dev)
+            {
+                if (device_info != null) device_info.Text = "";
+                return;
+            }
+
+            if (device_info != null)
+                device_info.Text = $"{dev.Name} ({dev.Category}){Environment.NewLine}{Environment.NewLine}{dev.Description}";
         }
 
-        private void proj_devices_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (proj_devices.SelectedItems.Count == 0) return;
-
-            var it = proj_devices.SelectedItems[0];
-            // Annahme: .Tag trägt eine DeviceInstance mit Eigenschaft .Template
-            if (it.Tag is DeviceInstance inst && inst.Template != null)
-                ShowTemplateDescription(inst.Template);
-        }
-
-        // Zeigt die Gerätebeschreibung in dem Label "device_info" an
-        private void ShowTemplateDescription(DeviceTemplate t)
-        {
-            if (device_info == null) return; // falls im Designer noch nicht vorhanden
-            device_info.Text = "";
-            device_info.Text = (t != null && !string.IsNullOrWhiteSpace(t.Description))
-                ? t.Description
-                : "(Keine Beschreibung vorhanden.)";
-        }
-
-        // ===================== "+" Button =====================
-
+        // ===================== Button: Neues Gerät =====================
         private void add_device_Click(object sender, EventArgs e)
         {
-            if (device_tree.SelectedNode?.Tag is not DeviceTemplate t)
+            if (device_tree.SelectedNode?.Tag is not DeviceTemplate selectedTemplate)
             {
-                MessageBox.Show("Bitte links eine Gerätevorlage auswählen.",
-                    "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bitte zuerst ein Gerätetemplate in der linken Liste auswählen.", "Hinweis", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Vorschlag anhand aktueller Belegung im Store
-            const ushort defaultUniverse = 0;
-            int suggestedStart = _store.SuggestStart(t, defaultUniverse);
-
-            using var dlg = new AddDeviceDialog(t.Name, suggestedStart, defaultUniverse);
-            if (dlg.ShowDialog(this) != DialogResult.OK) return;
-
-            var inst = _store.Add(t, dlg.DeviceLabel, dlg.Universe, dlg.StartChannel, out string err);
-            if (inst == null)
+            using (AddDevice dlg = new AddDevice(selectedTemplate.Name, 0, 1))
             {
-                MessageBox.Show(err ?? "Unbekannter Fehler.",
-                    "Konnte Gerät nicht hinzufügen", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Optional: Defaults sofort senden
-            if (_engine != null)
-            {
-                foreach (var ch in inst.Template.Channels)
+                if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    int absolute = inst.StartChannel + ch.Offset; // 1-basiert
-                    _engine.SetChannel(absolute, ch.Default, 0, ch.MergeMode);
+                    var newDev = new DeviceInstance
+                    {
+                        Idx = _nextId++,                    
+                        Name = dlg.DeviceName,
+                        TemplateName = selectedTemplate.Name,
+                        Universe = dlg.Universe,
+                        StartChannel = dlg.StartChannel,
+                        Footprint = 3 // ggf. aus Template ermitteln
+                    };
+
+                    _addedDevices.Add(newDev);
+                    UpdateDeviceListView();
                 }
             }
 
-            // Liste aktualisiert sich auch via Store.Changed; hier zur Sicherheit:
-            RefreshList();
         }
 
-        // ===================== Hilfen =====================
-
-        // Wenn du den Templates-Pfad zur Laufzeit umstellen möchtest:
-        public void ReloadTemplatesFrom(string newPath)
+        private void UpdateDeviceListView()
         {
-            if (string.IsNullOrWhiteSpace(newPath)) return;
-            if (!Directory.Exists(newPath)) Directory.CreateDirectory(newPath);
+            proj_device.BeginUpdate();
+            proj_device.Items.Clear();
 
-            _lib = DeviceLibrary.LoadFromFolder(newPath);
-            BuildTree();
+            foreach (var dev in _addedDevices)
+            {
+                var item = new ListViewItem(dev.Idx.ToString());  
+                item.SubItems.Add(dev.Name);
+                item.SubItems.Add(dev.TemplateName);
+                item.SubItems.Add(dev.Universe.ToString());
+                item.SubItems.Add(dev.StartChannel.ToString());
+                item.SubItems.Add(dev.Footprint.ToString());
+                item.Tag = dev;
+                proj_device.Items.Add(item);
+            }
+
+            proj_device.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            proj_device.EndUpdate();
         }
-    }
 
-    // ===================== Adress-Dialog =====================
-
-    internal sealed class AddDeviceDialog : Form
-    {
-        private readonly TextBox txtLabel = new() { Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right };
-        private readonly NumericUpDown numUniverse = new() { Minimum = 0, Maximum = 32767 };
-        private readonly NumericUpDown numStart = new() { Minimum = 1, Maximum = 512 };
-        private readonly Button btnOk = new() { Text = "OK", DialogResult = DialogResult.OK };
-        private readonly Button btnCancel = new() { Text = "Abbrechen", DialogResult = DialogResult.Cancel };
-
-        public string DeviceLabel => txtLabel.Text.Trim();
-        public ushort Universe => (ushort)numUniverse.Value;
-        public int StartChannel => (int)numStart.Value;
-
-        public AddDeviceDialog(string templateName, int suggestedStart, ushort suggestedUniverse)
-        {
-            Text = $"Gerät hinzufügen – {templateName}";
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            StartPosition = FormStartPosition.CenterParent;
-            MinimizeBox = MaximizeBox = false;
-            AcceptButton = btnOk; CancelButton = btnCancel;
-            ClientSize = new System.Drawing.Size(360, 160);
-
-            var lbl1 = new Label { Text = "Name:", Left = 12, Top = 14, AutoSize = true };
-            txtLabel.Left = 120; txtLabel.Top = 10; txtLabel.Width = 220; txtLabel.Text = templateName;
-
-            var lbl2 = new Label { Text = "Universe:", Left = 12, Top = 48, AutoSize = true };
-            numUniverse.Left = 120; numUniverse.Top = 44; numUniverse.Value = suggestedUniverse;
-
-            var lbl3 = new Label { Text = "Startkanal:", Left = 12, Top = 82, AutoSize = true };
-            numStart.Left = 120; numStart.Top = 78; numStart.Value = suggestedStart;
-
-            btnOk.Width = 80; btnCancel.Width = 90;
-            btnOk.Left = ClientSize.Width - 180; btnOk.Top = 115;
-            btnCancel.Left = ClientSize.Width - 90; btnCancel.Top = 115;
-
-            Controls.AddRange(new Control[] {
-                lbl1, txtLabel, lbl2, numUniverse, lbl3, numStart, btnOk, btnCancel
-            });
-        }
     }
 }

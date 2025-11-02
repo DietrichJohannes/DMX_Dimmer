@@ -1,7 +1,6 @@
 <!-- DeviceTemplates/RGB.xml -->
 <DeviceTemplate name="RGB" category="Allgemein">
   <Description>Ein 3-Kanal RGB-Gerät</Description>
-  <ControllType type="3">
   <Channels>
     <Channel name="Red" text="Rot" offset="0" default="0" mergeMode="HTP" />
     <Channel name="Green" text="Grün" offset="1" default="0" mergeMode="HTP" />

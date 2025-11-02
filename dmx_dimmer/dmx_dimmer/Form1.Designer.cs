@@ -57,6 +57,8 @@
             zurWebseiteToolStripMenuItem = new ToolStripMenuItem();
             überDenEntwicklerToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
+            toolStripButton5 = new ToolStripButton();
+            toolStripSeparator3 = new ToolStripSeparator();
             label2 = new Label();
             BatteryBar = new ProgressBar();
             label3 = new Label();
@@ -373,13 +375,28 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripSplitButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripButton5, toolStripSeparator3, toolStripSplitButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.System;
             toolStrip1.Size = new Size(1018, 25);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton5
+            // 
+            toolStripButton5.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton5.Image = (Image)resources.GetObject("toolStripButton5.Image");
+            toolStripButton5.ImageTransparentColor = Color.Magenta;
+            toolStripButton5.Name = "toolStripButton5";
+            toolStripButton5.Size = new Size(23, 22);
+            toolStripButton5.Text = "toolStripButton5";
+            toolStripButton5.Click += toolStripButton5_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 25);
             // 
             // label2
             // 
@@ -478,5 +495,7 @@
         private ProgressBar BatteryBar;
         private Label label3;
         private Label lblBattery;
+        private ToolStripButton toolStripButton5;
+        private ToolStripSeparator toolStripSeparator3;
     }
 }

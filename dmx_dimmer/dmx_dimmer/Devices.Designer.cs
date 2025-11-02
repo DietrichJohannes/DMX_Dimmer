@@ -32,7 +32,7 @@
             treeView1 = new TreeView();
             device_tree = new TreeView();
             add_device = new Button();
-            proj_devices = new ListView();
+            proj_device = new ListView();
             device_info = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -40,7 +40,7 @@
             // 
             // treeView1
             // 
-            treeView1.Location = new Point(589, 12);
+            treeView1.Location = new Point(589, 295);
             treeView1.Name = "treeView1";
             treeView1.Size = new Size(616, 236);
             treeView1.TabIndex = 2;
@@ -64,13 +64,13 @@
             add_device.UseVisualStyleBackColor = true;
             add_device.Click += add_device_Click;
             // 
-            // proj_devices
+            // proj_device
             // 
-            proj_devices.Location = new Point(589, 254);
-            proj_devices.Name = "proj_devices";
-            proj_devices.Size = new Size(616, 277);
-            proj_devices.TabIndex = 5;
-            proj_devices.UseCompatibleStateImageBehavior = false;
+            proj_device.Location = new Point(589, 12);
+            proj_device.Name = "proj_device";
+            proj_device.Size = new Size(616, 277);
+            proj_device.TabIndex = 5;
+            proj_device.UseCompatibleStateImageBehavior = false;
             // 
             // device_info
             // 
@@ -109,7 +109,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(device_info);
-            Controls.Add(proj_devices);
+            Controls.Add(proj_device);
             Controls.Add(add_device);
             Controls.Add(device_tree);
             Controls.Add(treeView1);
@@ -124,7 +124,7 @@
         private TreeView treeView1;
         private TreeView device_tree;
         private Button add_device;
-        private ListView proj_devices;
+        private ListView proj_device;
         private Label device_info;
         private Button button1;
         private Button button2;

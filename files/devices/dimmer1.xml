@@ -1,7 +1,6 @@
 <!-- DeviceTemplates/profiler.xml -->
 <DeviceTemplate name="Dimmer" category="Allgemein">
   <Description>6-Kanal Dimmer</Description>
-  <ControllType type="2">
   <Channels>
     <Channel name="Ch1" text="Kanal 1" offset="0" default="0" mergeMode="HTP" />
     <Channel name="Ch2" text="Kanal 2" offset="1" default="0" mergeMode="HTP" />

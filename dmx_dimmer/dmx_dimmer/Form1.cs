@@ -8,7 +8,6 @@ namespace dmx_dimmer
     public partial class Form1 : Form
     {
         private DMX_Engine _engine;
-        DeviceStore _deviceStore = new DeviceStore();
         PowerStatus pwr = SystemInformation.PowerStatus;
 
         private System.Windows.Forms.Timer timer;
@@ -143,7 +142,7 @@ namespace dmx_dimmer
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            var devicesWindow = new Devices(_deviceStore, _engine);
+            var devicesWindow = new Devices(_engine);
             devicesWindow.Show();
         }
 
@@ -202,6 +201,12 @@ namespace dmx_dimmer
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            locked locked = new locked();
+            locked.ShowDialog();
         }
     }
 }

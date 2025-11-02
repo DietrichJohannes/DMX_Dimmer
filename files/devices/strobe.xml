@@ -1,7 +1,7 @@
 <!-- DeviceTemplates/profiler.xml -->
 <DeviceTemplate name="Strobe" category="Allgemein">
   <Description>1-Kanal Strobe</Description>
-  <ControllType type="2">
+  <Image>Scheinwerfer</Image>
   <Channels>
     <Channel name="strobe" text="Strobe" offset="0" default="0" mergeMode="HTP" />
   </Channels>
