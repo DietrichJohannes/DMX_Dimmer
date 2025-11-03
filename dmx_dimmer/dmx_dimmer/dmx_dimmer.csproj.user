@@ -10,6 +10,12 @@
     <Compile Update="AddDevice.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AddMissingPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CanvasEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Devices.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,6 +50,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TextBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="WebServer.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

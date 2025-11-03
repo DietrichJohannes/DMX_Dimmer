@@ -208,5 +208,11 @@ namespace dmx_dimmer
             locked locked = new locked();
             locked.ShowDialog();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            WebServer webServer = new WebServer();
+            webServer.Show();
+        }
     }
 }

@@ -33,3 +33,6 @@ G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.AboutForm.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.AddDevice.resources
 G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.locked.resources
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.WebServer.resources
+G:\Programme\Projekte\DMX Dimmer\dmx_dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.AddMissingPassword.resources
+G:\Programme\Projekte\DMX Dimmer\DMX_Dimmer\dmx_dimmer\obj\Debug\net8.0-windows\dmx_dimmer.CanvasEditor.resources

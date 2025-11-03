@@ -17,7 +17,7 @@ namespace dmx_dimmer
             GetPassword();
             hint.Visible = false;
 
-            this.ControlBox = true; // auf false setzen, wenn das X nicht erlaubt sein soll
+            this.ControlBox = false;
             entered_password.UseSystemPasswordChar = true;
             this.AcceptButton = button1;
         }
@@ -26,11 +26,18 @@ namespace dmx_dimmer
         {
             _password = ConfigurationManager.AppSettings["Password"] ?? "";
 
-            if(string.Equals(_password, "")
+            if (string.IsNullOrEmpty(_password))
             {
-            
+                using (var dlg = new AddMissingPassword())
+                {
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        _password = dlg.ResultPassword;
+                    }
+                }
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,7 +46,7 @@ namespace dmx_dimmer
             if (string.Equals(_password, entered))
             {
                 _unlocked = true;
-                this.Close(); // erlaubt das Schließen
+                this.Close();
             }
             else
             {

@@ -44,7 +44,7 @@
       "projectName": "dmx_dimmer",
       "projectPath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\dmx_dimmer.csproj",
       "packagesPath": "C:\\Users\\Anwender\\.nuget\\packages\\",
-      "outputPath": "G:\\Programme\\Projekte\\DMX Dimmer\\dmx_dimmer\\dmx_dimmer\\obj\\",
+      "outputPath": "G:\\Programme\\Projekte\\DMX Dimmer\\DMX_Dimmer\\dmx_dimmer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

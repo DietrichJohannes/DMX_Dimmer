@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="play-circle-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play-circle-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bühnenansicht" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bühnenansicht.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye-closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye-closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="description" xml:space="preserve">
     <value>DMX_DIMMER ist eine Open Source Software zur Steuerung von DMX512 Teilnehmern über USB oder ArtNet.</value>
+  </data>
+  <data name="server" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\server.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="folder-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,26 +142,23 @@
   <data name="content-save-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\content-save-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="track-light-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\track-light-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="eye-outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye-outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bühnenansicht" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bühnenansicht.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pencil-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pencil-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow-right-box-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-right-box-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="track-light-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\track-light-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dmx_dimmer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dmx_dimmer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,10 +175,13 @@
   <data name="stage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pencil-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pencil-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="play-circle-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\play-circle-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye-closed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye-closed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete-custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-custom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

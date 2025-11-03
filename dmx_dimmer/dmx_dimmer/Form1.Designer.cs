@@ -256,15 +256,16 @@
             // 
             // button9
             // 
-            button9.Image = (Image)resources.GetObject("button9.Image");
+            button9.Image = Properties.Resources.server;
             button9.Location = new Point(84, 30);
             button9.Name = "button9";
             button9.Size = new Size(75, 75);
             button9.TabIndex = 11;
-            button9.Text = "Textbuch";
+            button9.Text = "Webserver";
             button9.TextAlign = ContentAlignment.BottomCenter;
             button9.TextImageRelation = TextImageRelation.ImageAboveText;
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // button2
             // 
@@ -386,11 +387,11 @@
             // toolStripButton5
             // 
             toolStripButton5.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton5.Image = (Image)resources.GetObject("toolStripButton5.Image");
+            toolStripButton5.Image = Properties.Resources.block;
             toolStripButton5.ImageTransparentColor = Color.Magenta;
             toolStripButton5.Name = "toolStripButton5";
             toolStripButton5.Size = new Size(23, 22);
-            toolStripButton5.Text = "toolStripButton5";
+            toolStripButton5.Text = "DMX_Dimmer sperren";
             toolStripButton5.Click += toolStripButton5_Click;
             // 
             // toolStripSeparator3
@@ -489,7 +490,6 @@
         private ToolStripMenuItem zurWebseiteToolStripMenuItem;
         private ToolStripMenuItem überDenEntwicklerToolStripMenuItem;
         private ToolStrip toolStrip1;
-        private Button button9;
         private Label label2;
         private Button button10;
         private ProgressBar BatteryBar;
@@ -497,5 +497,6 @@
         private Label lblBattery;
         private ToolStripButton toolStripButton5;
         private ToolStripSeparator toolStripSeparator3;
+        private Button button9;
     }
 }
