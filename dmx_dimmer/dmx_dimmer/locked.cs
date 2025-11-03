@@ -22,17 +22,16 @@ namespace dmx_dimmer
             this.AcceptButton = button1;
         }
 
-        /// <summary>
-        /// Liest das Passwort aus der App.config (AppSettings["Password"])
-        /// </summary>
         private void GetPassword()
         {
             _password = ConfigurationManager.AppSettings["Password"] ?? "";
+
+            if(string.Equals(_password, "")
+            {
+            
+            }
         }
 
-        /// <summary>
-        /// Wird ausgelöst, wenn der Benutzer auf den "OK"- oder "Login"-Button klickt.
-        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             string entered = entered_password.Text;
