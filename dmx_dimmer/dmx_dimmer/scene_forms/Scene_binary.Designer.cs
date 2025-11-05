@@ -1,6 +1,6 @@
 ﻿namespace dmx_dimmer.scene_forms
 {
-    partial class Scene_rgb
+    partial class Scene_binary
     {
         /// <summary>
         /// Required designer variable.
@@ -28,59 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scene_rgb));
-            colorPicker = new ColorDialog();
-            label1 = new Label();
-            label2 = new Label();
-            panelColorPreview = new Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Scene_binary));
             button1 = new Button();
+            button2 = new Button();
+            label2 = new Label();
+            label1 = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Gerät: ";
-            // 
-            // label2
-            // 
-            label2.Location = new Point(12, 32);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 23);
-            label2.TabIndex = 1;
-            label2.Text = "Adresse: ";
-            // 
-            // panelColorPreview
-            // 
-            panelColorPreview.Location = new Point(207, 62);
-            panelColorPreview.Name = "panelColorPreview";
-            panelColorPreview.Size = new Size(81, 41);
-            panelColorPreview.TabIndex = 2;
             // 
             // button1
             // 
-            button1.Location = new Point(213, 109);
+            button1.Image = Properties.Resources.off;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(196, 93);
             button1.Name = "button1";
-            button1.Size = new Size(75, 41);
-            button1.TabIndex = 3;
-            button1.Text = "Farbe ändern";
+            button1.Size = new Size(96, 56);
+            button1.TabIndex = 0;
+            button1.Text = "    AUS";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
-            // Scene_rgb
+            // button2
+            // 
+            button2.Image = Properties.Resources.on;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(12, 93);
+            button2.Name = "button2";
+            button2.Size = new Size(96, 56);
+            button2.TabIndex = 1;
+            button2.Text = "    EIN";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(8, 32);
+            label2.Name = "label2";
+            label2.Size = new Size(100, 23);
+            label2.TabIndex = 3;
+            label2.Text = "Adresse: ";
+            // 
+            // label1
+            // 
+            label1.Location = new Point(8, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 23);
+            label1.TabIndex = 2;
+            label1.Text = "Gerät: ";
+            // 
+            // Scene_binary
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(304, 161);
-            Controls.Add(button1);
-            Controls.Add(panelColorPreview);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Controls.Add(button2);
+            Controls.Add(button1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Scene_rgb";
+            Name = "Scene_binary";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gerät einrichten";
             ResumeLayout(false);
@@ -88,10 +91,9 @@
 
         #endregion
 
-        private ColorDialog colorPicker;
-        private Label label1;
-        private Label label2;
-        private Panel panelColorPreview;
         private Button button1;
+        private Button button2;
+        private Label label2;
+        private Label label1;
     }
 }

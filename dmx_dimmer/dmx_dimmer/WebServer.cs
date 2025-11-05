@@ -11,7 +11,8 @@ namespace dmx_dimmer
     public partial class WebServer : Form
     {
         private readonly Server _server = new();
-        private CanvasState _state = new();
+
+        private CanvasState _state; // kommt vom MainForm
 
         private bool _serverActive = false;
         private bool _protectedModeActive = false;
@@ -19,27 +20,37 @@ namespace dmx_dimmer
         private readonly string _configuredPassword;
         private readonly int _configuredPort;
 
-        public WebServer()
+        // Designer-freundlicher ctor (falls du das Form im Designer öffnest)
+        public WebServer() : this(new CanvasState())
+        {
+        }
+
+        // Haupt-ctor: State wird von außen übergeben
+        public WebServer(CanvasState state)
         {
             InitializeComponent();
+
+            _state = state ?? new CanvasState();
 
             _configuredPassword = ConfigurationManager.AppSettings["ServerPassword"] ?? "";
             if (!int.TryParse(ConfigurationManager.AppSettings["WebserverPort"], out _configuredPort))
                 _configuredPort = 8080;
 
+            // Jetzt, wo _state gesetzt ist, State in den Server schieben
             _server.SetState(_state);
 
             UpdateServerButton();
             UpdateProtectButton();
 
-            linkAddress.Text = $"http://{GetLocalIp()}:{_configuredPort}/";
+            if (linkAddress != null)
+                linkAddress.Text = $"http://{GetLocalIp()}:{_configuredPort}/";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (_serverActive)
             {
-                _server.Stop();
+                try { _server.Stop(); } catch { }
                 _serverActive = false;
             }
             else
@@ -48,12 +59,17 @@ namespace dmx_dimmer
                     ? _configuredPassword
                     : null;
 
+                // sicherheitshalber den aktuellen State nochmal setzen
                 _server.SetState(_state);
+
+                // Hinweis: Für http://+ brauchst du ggf. URLACL-Rechte oder Admin
                 _server.Start($"http://+:{_configuredPort}/");
                 _serverActive = true;
 
-                if (linkAddress != null) linkAddress.Text = $"http://{GetLocalIp()}:{_configuredPort}/";
+                if (linkAddress != null)
+                    linkAddress.Text = $"http://{GetLocalIp()}:{_configuredPort}/";
             }
+
             UpdateServerButton();
         }
 
@@ -68,18 +84,6 @@ namespace dmx_dimmer
             UpdateProtectButton();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            using var editor = new CanvasEditor();
-            editor.LoadState(_state);
-            editor.StateChanged += st =>
-            {
-                _state = st;
-                _server.SetState(_state);
-            };
-            editor.ShowDialog(this);
-        }
-
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             try { _server.Stop(); } catch { }
@@ -88,14 +92,30 @@ namespace dmx_dimmer
 
         private void UpdateServerButton()
         {
-            if (_serverActive) { button1.Text = "Stoppen"; button1.BackColor = Color.Red; }
-            else { button1.Text = "Starten"; button1.BackColor = Color.FromArgb(0, 192, 0); }
+            if (_serverActive)
+            {
+                button1.Text = "Stoppen";
+                button1.BackColor = Color.Red;
+            }
+            else
+            {
+                button1.Text = "Starten";
+                button1.BackColor = Color.FromArgb(0, 192, 0);
+            }
         }
 
         private void UpdateProtectButton()
         {
-            if (_protectedModeActive) { button3.Text = "Aktiv"; button3.BackColor = Color.FromArgb(0, 192, 0); }
-            else { button3.Text = "Inaktiv"; button3.BackColor = Color.Red; }
+            if (_protectedModeActive)
+            {
+                button3.Text = "Aktiv";
+                button3.BackColor = Color.FromArgb(0, 192, 0);
+            }
+            else
+            {
+                button3.Text = "Inaktiv";
+                button3.BackColor = Color.Red;
+            }
         }
 
         private static string GetLocalIp()
@@ -106,7 +126,10 @@ namespace dmx_dimmer
                     .AddressList.First(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
                     .ToString();
             }
-            catch { return "127.0.0.1"; }
+            catch
+            {
+                return "127.0.0.1";
+            }
         }
 
         private void linkAddress_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -114,10 +137,14 @@ namespace dmx_dimmer
             try
             {
                 linkAddress.LinkVisited = true;
-
                 var url = linkAddress.Text;
 
-                System.Diagnostics.Process.Start("explorer", url);
+                // Öffnet den Standardbrowser zuverlässig
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                });
             }
             catch (Exception ex)
             {

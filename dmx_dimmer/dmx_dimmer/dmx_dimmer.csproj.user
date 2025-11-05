@@ -43,6 +43,9 @@
     <Compile Update="Scene.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="scene_forms\Scene_binary.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="scene_forms\Scene_rgb.cs">
       <SubType>Form</SubType>
     </Compile>

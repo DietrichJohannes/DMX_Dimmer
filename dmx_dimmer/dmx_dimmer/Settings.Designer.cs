@@ -184,11 +184,11 @@
             // 
             webserver_port.Location = new Point(159, 238);
             webserver_port.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            webserver_port.Minimum = new decimal(new int[] { 100, 0, 0, 0 });
+            webserver_port.Minimum = new decimal(new int[] { 50, 0, 0, 0 });
             webserver_port.Name = "webserver_port";
             webserver_port.Size = new Size(163, 23);
             webserver_port.TabIndex = 14;
-            webserver_port.Value = new decimal(new int[] { 8080, 0, 0, 0 });
+            webserver_port.Value = new decimal(new int[] { 80, 0, 0, 0 });
             // 
             // label8
             // 

@@ -37,7 +37,6 @@
             label2 = new Label();
             button1 = new Button();
             label4 = new Label();
-            button2 = new Button();
             button3 = new Button();
             label5 = new Label();
             panel1.SuspendLayout();
@@ -119,16 +118,6 @@
             label4.Text = "Server";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // button2
-            // 
-            button2.Location = new Point(322, 189);
-            button2.Name = "button2";
-            button2.Size = new Size(119, 23);
-            button2.TabIndex = 4;
-            button2.Text = "Canva bearbeiten";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // button3
             // 
             button3.BackColor = Color.FromArgb(0, 192, 0);
@@ -157,7 +146,6 @@
             ClientSize = new Size(706, 224);
             Controls.Add(label5);
             Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(panel1);
@@ -182,7 +170,6 @@
         private LinkLabel linkAddress;
         private Button button1;
         private Label label4;
-        private Button button2;
         private Button button3;
         private Label label5;
         private Label lblPwdStatus;

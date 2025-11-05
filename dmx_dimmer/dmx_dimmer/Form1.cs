@@ -213,7 +213,7 @@ namespace dmx_dimmer
 
         private void button9_Click(object sender, EventArgs e)
         {
-            WebServer webServer = new WebServer();
+            WebServer webServer = new WebServer(_canvas);
             webServer.Show();
         }
 

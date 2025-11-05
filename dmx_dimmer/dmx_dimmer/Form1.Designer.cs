@@ -43,6 +43,7 @@
             tabPage3 = new TabPage();
             button8 = new Button();
             tabPage4 = new TabPage();
+            button11 = new Button();
             button9 = new Button();
             button2 = new Button();
             toolStrip2 = new ToolStrip();
@@ -63,7 +64,6 @@
             BatteryBar = new ProgressBar();
             label3 = new Label();
             lblBattery = new Label();
-            button11 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -256,6 +256,19 @@
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Steuerung";
             // 
+            // button11
+            // 
+            button11.Image = Properties.Resources.gamepad;
+            button11.Location = new Point(82, 30);
+            button11.Name = "button11";
+            button11.Size = new Size(75, 75);
+            button11.TabIndex = 12;
+            button11.Text = "Panel";
+            button11.TextAlign = ContentAlignment.BottomCenter;
+            button11.TextImageRelation = TextImageRelation.ImageAboveText;
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // button9
             // 
             button9.Image = Properties.Resources.server;
@@ -436,19 +449,6 @@
             lblBattery.Size = new Size(120, 23);
             lblBattery.TabIndex = 14;
             lblBattery.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // button11
-            // 
-            button11.Image = Properties.Resources.server;
-            button11.Location = new Point(82, 30);
-            button11.Name = "button11";
-            button11.Size = new Size(75, 75);
-            button11.TabIndex = 12;
-            button11.Text = "Panel";
-            button11.TextAlign = ContentAlignment.BottomCenter;
-            button11.TextImageRelation = TextImageRelation.ImageAboveText;
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
             // 
             // Form1
             // 
