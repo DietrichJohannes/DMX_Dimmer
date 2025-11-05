@@ -68,10 +68,10 @@
             // 
             linkAddress.Location = new Point(67, 16);
             linkAddress.Name = "linkAddress";
-            linkAddress.Size = new Size(126, 23);
+            linkAddress.Size = new Size(159, 23);
             linkAddress.TabIndex = 4;
             linkAddress.TabStop = true;
-            linkAddress.Text = "http://192.168.255.255";
+            linkAddress.Text = "http://192.168.255.255:8080\r\n";
             linkAddress.LinkClicked += linkAddress_LinkClicked;
             // 
             // label3

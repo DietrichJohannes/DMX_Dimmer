@@ -35,6 +35,8 @@ namespace dmx_dimmer
 
             password.Text = ConfigurationManager.AppSettings["Password"] ?? "";
             password.UseSystemPasswordChar = true;
+
+            webserver_port.Value = Convert.ToInt32(ConfigurationManager.AppSettings["WebserverPort"] ?? "8080");
         }
 
         private void SaveSettings()
@@ -56,6 +58,7 @@ namespace dmx_dimmer
             SetAppSetting(config, "SendOnlyWhenDirty", chkSendOnlyWhenDirty.Checked.ToString().ToLowerInvariant());
             SetAppSetting(config, "DMXFPS", dmx_fps.Value.ToString());
             SetAppSetting(config, "Password", password.Text.ToString());
+            SetAppSetting(config, "WebserverPort", webserver_port.Value.ToString());
 
             // 4) Speichern & Refresh
             config.Save(ConfigurationSaveMode.Modified);

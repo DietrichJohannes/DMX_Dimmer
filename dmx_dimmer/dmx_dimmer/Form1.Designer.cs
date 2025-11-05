@@ -63,6 +63,7 @@
             BatteryBar = new ProgressBar();
             label3 = new Label();
             lblBattery = new Label();
+            button11 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -246,6 +247,7 @@
             // tabPage4
             // 
             tabPage4.BackColor = SystemColors.Control;
+            tabPage4.Controls.Add(button11);
             tabPage4.Controls.Add(button9);
             tabPage4.Controls.Add(button2);
             tabPage4.Location = new Point(4, 24);
@@ -257,7 +259,7 @@
             // button9
             // 
             button9.Image = Properties.Resources.server;
-            button9.Location = new Point(84, 30);
+            button9.Location = new Point(163, 30);
             button9.Name = "button9";
             button9.Size = new Size(75, 75);
             button9.TabIndex = 11;
@@ -310,6 +312,7 @@
             toolStripButton1.Size = new Size(23, 22);
             toolStripButton1.Text = "toolStripButton1";
             toolStripButton1.ToolTipText = "Speichern";
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripButton2
             // 
@@ -320,6 +323,7 @@
             toolStripButton2.Size = new Size(23, 22);
             toolStripButton2.Text = "toolStripButton2";
             toolStripButton2.ToolTipText = "Projekt öffnen";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripSeparator1
             // 
@@ -433,6 +437,19 @@
             lblBattery.TabIndex = 14;
             lblBattery.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // button11
+            // 
+            button11.Image = Properties.Resources.server;
+            button11.Location = new Point(82, 30);
+            button11.Name = "button11";
+            button11.Size = new Size(75, 75);
+            button11.TabIndex = 12;
+            button11.Text = "Panel";
+            button11.TextAlign = ContentAlignment.BottomCenter;
+            button11.TextImageRelation = TextImageRelation.ImageAboveText;
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -498,5 +515,6 @@
         private ToolStripButton toolStripButton5;
         private ToolStripSeparator toolStripSeparator3;
         private Button button9;
+        private Button button11;
     }
 }

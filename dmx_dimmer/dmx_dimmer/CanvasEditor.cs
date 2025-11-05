@@ -19,15 +19,26 @@ namespace dmx_dimmer
         private Point _dragOffset;
         private Control? _dragControl;
 
+        // ✅ Für den Designer / falls du später per LoadState lädst
         public CanvasEditor()
         {
             InitializeComponent();
-            // ContextMenu
+            InitUi();
+        }
+
+        // ✅ Konstruktor mit State + chaining
+        public CanvasEditor(CanvasState canvas) : this()
+        {
+            LoadState(canvas); // <— Wichtig!
+        }
+
+        private void InitUi()
+        {
             var cm = new ContextMenuStrip();
             cm.Items.Add("Button hinzufügen", null, (_, __) => AddButtonAt(MousePositionToCanvas()));
             canvasPanel.ContextMenuStrip = cm;
 
-            canvasPanel.AllowDrop = false; // nicht nötig für eigenes Dragging
+            canvasPanel.AllowDrop = false;
         }
 
         public void LoadState(CanvasState state)
@@ -62,7 +73,6 @@ namespace dmx_dimmer
             b.MouseUp += EndDrag;
             b.DoubleClick += (_, __) =>
             {
-                // einfacher Text-Editor
                 var input = Microsoft.VisualBasic.Interaction.InputBox("Text:", "Beschriftung", w.Text);
                 if (!string.IsNullOrWhiteSpace(input))
                 {
@@ -110,7 +120,6 @@ namespace dmx_dimmer
         private void EndDrag(object? sender, MouseEventArgs e)
         {
             if (_dragControl == null) return;
-            // Position ins Modell schreiben
             var id = (string)_dragControl.Tag;
             var w = State.Widgets.First(x => x.Id == id);
             w.X = _dragControl.Left;

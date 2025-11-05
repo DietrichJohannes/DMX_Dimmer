@@ -5,7 +5,7 @@ namespace dmx_dimmer
     public class CanvasState
     {
         public List<Widget> Widgets { get; set; } = new();
-        public string? Title { get; set; } = "Mein Panel";
+        public string? Title { get; set; } = "DXM_DIMMER";
     }
 
     public class Widget
@@ -19,3 +19,4 @@ namespace dmx_dimmer
         public string Action { get; set; } = "#";
     }
 }
+// speichere in projekt archiv .dmxproj in json oder xml

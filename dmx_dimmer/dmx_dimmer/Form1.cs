@@ -12,6 +12,8 @@ namespace dmx_dimmer
 
         private System.Windows.Forms.Timer timer;
 
+        private CanvasState _canvas = new CanvasState();
+
         public Form1()
         {
             InitializeComponent();
@@ -213,6 +215,63 @@ namespace dmx_dimmer
         {
             WebServer webServer = new WebServer();
             webServer.Show();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Projekt speichern";
+                sfd.Filter = "DMX-Projekt (*.dmxproj)|*.dmxproj";
+                sfd.DefaultExt = "dmxproj";
+                sfd.AddExtension = true;
+                sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                sfd.FileName = _canvas.Title + ".dmxproj"; // Vorschlag
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        ProjectManager.ProjectSave(_canvas, sfd.FileName);
+                        MessageBox.Show("Projekt erfolgreich gespeichert!", "Speichern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Fehler beim Speichern:\n{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Projekt öffnen";
+                ofd.Filter = "DMX-Projekt (*.dmxproj)|*.dmxproj";
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        _canvas = ProjectManager.ProjectLoad(ofd.FileName);
+                        MessageBox.Show("Projekt erfolgreich geladen!", "Öffnen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // TODO: Widgets auf der Oberfläche neu anzeigen
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Fehler beim Laden:\n{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            CanvasEditor canvasEditor = new CanvasEditor(_canvas);
+            canvasEditor.Show();
         }
     }
 }
