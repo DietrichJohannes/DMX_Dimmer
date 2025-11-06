@@ -42,7 +42,6 @@
             button1.Size = new Size(40, 36);
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // panelStage
             // 

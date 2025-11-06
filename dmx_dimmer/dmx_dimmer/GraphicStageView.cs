@@ -1,80 +1,129 @@
 ﻿using dmx_dimmer.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace dmx_dimmer
 {
     public partial class GraphicStageView : Form
     {
-        public GraphicStageView()
+        private readonly GraphicStageViewState _state;
+        private readonly Dictionary<PictureBox, FixtureState> _map = new();
+
+        private bool _isDragging = false;
+        private Point _dragStart;
+
+        // Optional: bestehenden State reinreichen, sonst neuer
+        public GraphicStageView(GraphicStageViewState state)
         {
             InitializeComponent();
+            _state = state;
 
-            // Beispiel: 3 Scheinwerfer erstellen
-            CreateFixture("Spot 1", 50, 50);
-            CreateFixture("Spot 2", 50, 150);
-            CreateFixture("Spot 3", 50, 250);
+            // Fixtures aus State laden
+            foreach (var fx in _state.Fixtures)
+                CreateFixtureControl(fx);
+
+            // Falls noch keine Fixtures existieren --> Beispiel anlegen
+            if (_state.Fixtures.Count == 0)
+            {
+                AddFixtureToStateAndUI(new FixtureState { Name = "Spot 1", X = 50, Y = 50 });
+                AddFixtureToStateAndUI(new FixtureState { Name = "Spot 2", X = 50, Y = 150});
+                AddFixtureToStateAndUI(new FixtureState { Name = "Spot 3", X = 50, Y = 250});
+                AddFixtureToStateAndUI(new FixtureState { Name = "Spot 4", X = 50, Y = 350});
+            }
         }
 
-        private void CreateFixture(string name, int x, int y)
+        // Zugriff nach außen, um den (geänderten) State abzuholen
+        public GraphicStageViewState GetState() => _state;
+
+        // --- UI-Erzeugung ---
+
+        private void AddFixtureToStateAndUI(FixtureState fixtureState)
         {
-            PictureBox fixture = new PictureBox();
-            fixture.Width = 40;
-            fixture.Height = 40;
-            fixture.Image = Resources.Scheinwerfer;
-            fixture.BorderStyle = BorderStyle.None;
-            fixture.Tag = name;
+            _state.Fixtures.Add(fixtureState);
+            CreateFixtureControl(fixtureState);
+        }
 
-            // Position setzen
-            fixture.Left = x;
-            fixture.Top = y;
+        private void CreateFixtureControl(FixtureState fx)
+        {
+            var fixture = new PictureBox
+            {
+                Width = fx.Width,
+                Height = fx.Height,
+                Image = Resources.Scheinwerfer,
+                BorderStyle = BorderStyle.None,
+                Tag = fx.Name,
+                Left = fx.X,
+                Top = fx.Y,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Cursor = Cursors.SizeAll
+            };
 
-            // Drag-Ereignisse registrieren
+            // Drag-Events
             fixture.MouseDown += Fixture_MouseDown;
             fixture.MouseMove += Fixture_MouseMove;
             fixture.MouseUp += Fixture_MouseUp;
 
             panelStage.Controls.Add(fixture);
+            _map[fixture] = fx;
         }
 
-        private bool isDragging = false;
-        private Point dragStart;
+        // --- Dragging ---
 
-        private void Fixture_MouseDown(object sender, MouseEventArgs e)
+        private void Fixture_MouseDown(object? sender, MouseEventArgs e)
         {
-            isDragging = true;
-            dragStart = e.Location;
-            ((PictureBox)sender).BringToFront(); // Immer oben
-        }
-
-        private void Fixture_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (isDragging)
+            if (sender is PictureBox pb)
             {
-                PictureBox fixture = (PictureBox)sender;
-                fixture.Left += e.X - dragStart.X;
-                fixture.Top += e.Y - dragStart.Y;
+                _isDragging = true;
+                _dragStart = e.Location;
+                pb.BringToFront();
             }
         }
 
-        private void Fixture_MouseUp(object sender, MouseEventArgs e)
+        private void Fixture_MouseMove(object? sender, MouseEventArgs e)
         {
-            isDragging = false;
-            // Optional: Position speichern
-            var fixture = (PictureBox)sender;
-            Console.WriteLine($"{fixture.Tag} -> X:{fixture.Left}, Y:{fixture.Top}");
+            if (_isDragging && sender is PictureBox pb)
+            {
+                pb.Left += e.X - _dragStart.X;
+                pb.Top += e.Y - _dragStart.Y;
+
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Fixture_MouseUp(object? sender, MouseEventArgs e)
         {
+            _isDragging = false;
 
+            if (sender is PictureBox pb && _map.TryGetValue(pb, out var fx))
+            {
+                // neue Position zurück in den State
+                fx.X = pb.Left;
+                fx.Y = pb.Top;
+                fx.Width = pb.Width;   // falls später resizable
+                fx.Height = pb.Height;
+
+                // Debug-Ausgabe
+                Console.WriteLine($"{fx.Name} -> X:{fx.X}, Y:{fx.Y}");
+            }
+        }
+
+        private static void ClampInsidePanel(Control c, Panel container)
+        {
+            int minX = 0, minY = 0;
+            int maxX = Math.Max(0, container.ClientSize.Width - c.Width);
+            int maxY = Math.Max(0, container.ClientSize.Height - c.Height);
+
+            c.Left = Math.Min(Math.Max(c.Left, minX), maxX);
+            c.Top = Math.Min(Math.Max(c.Top, minY), maxY);
+        }
+
+        // Beispiel: neuen Fixture per Button hinzufügen
+        private void buttonAddFixture_Click(object sender, EventArgs e)
+        {
+            var name = $"Spot {_state.Fixtures.Count + 1}";
+            AddFixtureToStateAndUI(new FixtureState { Name = name, X = 100, Y = 100 });
         }
     }
 }

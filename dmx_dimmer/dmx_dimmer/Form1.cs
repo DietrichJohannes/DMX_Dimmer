@@ -13,6 +13,7 @@ namespace dmx_dimmer
         private System.Windows.Forms.Timer timer;
 
         private CanvasState _canvas = new CanvasState();
+        private GraphicStageViewState _graphicStage = new GraphicStageViewState();
 
         public Form1()
         {
@@ -195,7 +196,7 @@ namespace dmx_dimmer
 
         private void button10_Click(object sender, EventArgs e)
         {
-            GraphicStageView graphicStageView = new GraphicStageView();
+            GraphicStageView graphicStageView = new GraphicStageView(_graphicStage);
             graphicStageView.Show();
         }
 
@@ -225,23 +226,34 @@ namespace dmx_dimmer
                 sfd.Filter = "DMX-Projekt (*.dmxproj)|*.dmxproj";
                 sfd.DefaultExt = "dmxproj";
                 sfd.AddExtension = true;
+                sfd.OverwritePrompt = true;
+                sfd.RestoreDirectory = true;
                 sfd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                sfd.FileName = _canvas.Title + ".dmxproj"; // Vorschlag
+                sfd.FileName = (_canvas?.Title ?? "Projekt") + ".dmxproj"; // konsistent zu canvasState
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     try
                     {
-                        ProjectManager.ProjectSave(_canvas, sfd.FileName);
-                        MessageBox.Show("Projekt erfolgreich gespeichert!", "Speichern", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // WICHTIG: den vom Dialog gewählten Pfad verwenden!
+                        ProjectManager.ProjectSave(
+                            sfd.FileName,
+                            new ProjectManager.Part("canvas.xml", _canvas),
+                            new ProjectManager.Part("stageview.xml", _graphicStage)
+                        );
+
+                        MessageBox.Show("Projekt erfolgreich gespeichert!",
+                            "Speichern", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Fehler beim Speichern:\n{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Fehler beim Speichern:\n{ex.Message}",
+                            "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
         }
+
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -251,19 +263,32 @@ namespace dmx_dimmer
                 ofd.Filter = "DMX-Projekt (*.dmxproj)|*.dmxproj";
                 ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    try
-                    {
-                        _canvas = ProjectManager.ProjectLoad(ofd.FileName);
-                        MessageBox.Show("Projekt erfolgreich geladen!", "Öffnen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (ofd.ShowDialog() != DialogResult.OK) return;
 
-                        // TODO: Widgets auf der Oberfläche neu anzeigen
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Fehler beim Laden:\n{ex.Message}", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                try
+                {
+                    // Gewünschte Einträge + Typen definieren
+                    var loaded = ProjectManager.ProjectLoadMany(
+                        ofd.FileName,
+                        ("canvas.xml", typeof(CanvasState)),
+                        ("stageview.xml", typeof(GraphicStageViewState))
+                    );
+
+                    // Sicher casten / Defaults wenn Eintrag fehlt
+                    _canvas = loaded.TryGetValue("canvas.xml", out var c) && c is CanvasState cOk
+                                        ? cOk : new CanvasState();
+
+                    _graphicStage = loaded.TryGetValue("stageview.xml", out var s) && s is GraphicStageViewState sOk
+                                        ? sOk : new GraphicStageViewState();
+
+
+                    MessageBox.Show("Projekt erfolgreich geladen!", "Öffnen",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fehler beim Laden:\n{ex.Message}", "Fehler",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -272,6 +297,24 @@ namespace dmx_dimmer
         {
             CanvasEditor canvasEditor = new CanvasEditor(_canvas);
             canvasEditor.Show();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ProjectManager.ProjectSave(
+                    new ProjectManager.Part("canvas.xml", _canvas),
+                    new ProjectManager.Part("stageview.xml", _graphicStage)
+                );
+                MessageBox.Show("Schnell gespeichert.", "Speichern",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Fehler beim Schnell-Speichern:\n{ex.Message}",
+                    "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

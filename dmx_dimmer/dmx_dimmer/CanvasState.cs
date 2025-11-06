@@ -19,4 +19,3 @@ namespace dmx_dimmer
         public string Action { get; set; } = "#";
     }
 }
-// speichere in projekt archiv .dmxproj in json oder xml

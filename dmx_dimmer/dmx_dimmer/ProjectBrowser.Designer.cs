@@ -65,6 +65,7 @@
             button2.Text = "Projekt öffnen";
             button2.TextAlign = ContentAlignment.BottomCenter;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 

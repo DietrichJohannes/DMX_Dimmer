@@ -64,6 +64,7 @@
             BatteryBar = new ProgressBar();
             label3 = new Label();
             lblBattery = new Label();
+            toolStripButton6 = new ToolStripButton();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -393,7 +394,7 @@
             // toolStrip1
             // 
             toolStrip1.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripButton5, toolStripSeparator3, toolStripSplitButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton3, toolStripButton1, toolStripButton6, toolStripButton2, toolStripSeparator1, btn_start_stop_sheduler, toolStripButton4, toolStripSeparator2, toolStripButton5, toolStripSeparator3, toolStripSplitButton1 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.RenderMode = ToolStripRenderMode.System;
@@ -449,6 +450,16 @@
             lblBattery.Size = new Size(120, 23);
             lblBattery.TabIndex = 14;
             lblBattery.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // toolStripButton6
+            // 
+            toolStripButton6.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton6.Image = Properties.Resources.on;
+            toolStripButton6.ImageTransparentColor = Color.Magenta;
+            toolStripButton6.Name = "toolStripButton6";
+            toolStripButton6.Size = new Size(23, 22);
+            toolStripButton6.Text = "toolStripButton6";
+            toolStripButton6.Click += toolStripButton6_Click;
             // 
             // Form1
             // 
@@ -516,5 +527,6 @@
         private ToolStripSeparator toolStripSeparator3;
         private Button button9;
         private Button button11;
+        private ToolStripButton toolStripButton6;
     }
 }
